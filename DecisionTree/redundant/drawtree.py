@@ -1,10 +1,5 @@
 
-import pickle
 from PIL import Image,ImageDraw
-
-data=pickle.load(open("./Data/iris/Data.p","rb"))
-colname=data[0]
-print(colname)
 
 def getwidth(tree):
 	if tree.tb==None and tree.tb==None: return 1
@@ -36,7 +31,7 @@ def drawnode(draw,tree,x,y):
 	    right=x+(w1+w2)/2
 
 	    # Draw the condition string
-	    draw.text((x-20,y-10),str(colname[tree.col])+':'+str(tree.value),(0,0,0))
+	    draw.text((x-20,y-10),str(tree.col)+':'+str(tree.value),(0,0,0))
 
 	    # Draw links to the branches
 	    draw.line((x,y,left+w1/2,y+100),fill=(255,0,0))

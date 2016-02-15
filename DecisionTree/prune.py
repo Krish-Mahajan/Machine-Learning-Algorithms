@@ -1,29 +1,28 @@
 
-#Python code to prune the decision tree
-from main import *
+from main import *  
+
 
 def prune(tree,mingain):
-	#if the branches aren't leaves,then prune them
-	if tree.tb.results==None:
-		prune(tree.tb,mingain)
+  # If the branches aren't leaves, then prune them
+  if tree.tb.results==None:
+    prune(tree.tb,mingain)
+  if tree.fb.results==None:
+    prune(tree.fb,mingain)
+    
+  # If both the subbranches are now leaves, see if they
+  # should merged
+  if tree.tb.results!=None and tree.fb.results!=None:
+    # Build a combined dataset
+    tb,fb=[],[]
+    for v,c in tree.tb.results.items():
+      tb+=[[v]]*c
+    for v,c in tree.fb.results.items():
+      fb+=[[v]]*c
+    
+    # Test the reduction in entropy
+    delta=entropy(tb+fb)-(entropy(tb)+entropy(fb)/2)
 
-	if tree.fb.results==None:
-		prune(tree.fb,mingain)
-
-	#if both the subbranches are now leaves,see if they should be merged
-	if tree.tb.results!=None and tree.fb.results!=None:
-		#build a combine dataset as if branching didn't happened here.
-		tb,fb=[],[]
-		for v,c in tree.tb.results.items():
-			tb=tb+[[v]]*c
-		for v,c in tree.fb.results.items():
-		    fb=fb+[[v]]*c
-
-		#Test the reduction in entropy
-		delta=entropy(tb+fb)-((entropy(tb)+entropy(fb))/2)
-
-		if delta <mingain:
-
-			#Merge the branches
-			tree.tb,tree.fb=None,None
-			tree.results=self.uniquecounts(tb+fb)	    	
+    if delta<mingain:
+      # Merge the branches
+      tree.tb,tree.fb=None,None
+      tree.results=uniquecounts(tb+fb)
