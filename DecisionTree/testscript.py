@@ -74,12 +74,35 @@ from  classify import *
 #print(mdclassify(['google','France',None,None],buildtree(my_data)))
 #print(mdclassify(['google','France',None,None],buildtree_new(my_data)))
 #print(classify(['(direct)','USA','yes',5],buildtree_new(my_data)))
-drawtree(buildtree(my_data[1:len(my_data)]),jpeg='treeview_new2.jpg')         
+#drawtree(buildtree(my_data[1:len(my_data)]),jpeg='treeview_new2.jpg')         
 
 
 #Testing on iris dataset
 
+'''
 my_data=pickle.load(open("./Data/iris/Data.p","rb"))
 
 #print(my_data)
 drawtree(buildtree(my_data[1:len(my_data)]),jpeg='./Data/iris/treeview.jpg') 
+#colname=[['sepal_length','sepal_width','petal_length','petal_width']]
+
+#print(classify([6.1,3.8,3.1,2.2],buildtree(my_data[1:len(my_data)])))
+#print(mdclassify([None,None,None,None],buildtree(my_data[1:len(my_data)])))
+'''
+
+#Testing on wine dataset
+
+def printtree(dataset=None,path="./Data",filename="data.p"):
+        filepath=path+ "/"+ dataset + "/" + filename
+        data=pickle.load(open(filepath,"rb"))
+
+        #print(my_data)
+        writepath=path+ "/"+ dataset + "/treeview.jpg"
+        tree=buildtree(data[1:len(data)])
+        drawtree(tree=tree,jpeg=writepath,colname=data[0]) 
+        #colname=[['sepal_length','sepal_width','petal_length','petal_width']]
+
+        #print(classify([6.1,3.8,3.1,2.2],buildtree(my_data[1:len(my_data)])))
+        #print(mdclassify([None,None,None,None],buildtree(my_data[1:len(my_data)])))
+
+printtree(dataset="iris")

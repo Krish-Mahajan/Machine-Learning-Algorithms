@@ -26,3 +26,4 @@ def prune(tree,mingain):
       # Merge the branches
       tree.tb,tree.fb=None,None
       tree.results=uniquecounts(tb+fb)
+  return tree    
