@@ -29,6 +29,7 @@ def entropy(rows):
       ent=ent-p*log2(p)
    return ent
 
+#calculate variance if class variable is numerical
 def variance(rows):
   if len(rows)==0: return 0
   data=[float(row[len(row)-1]) for row in rows]

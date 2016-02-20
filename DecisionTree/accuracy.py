@@ -2,7 +2,7 @@
 
 from classify import *
 import pickle
-from main import *
+from buildtree import *
 
 '''
 Function to calculate accuracy of decision tree 
@@ -13,7 +13,7 @@ def accuracy10Fold(dataset=None,path="./Data"):
     # Training & Testing on corresponding Train Test pair.
 	accuracyList=[]
 	for f in range(1,11):
-		print("Building model from Training fold ",f)
+		#print("Building model from Training fold ",f)
 		foldPath=path+"/" + dataset + "/folds/"
 		
 		#Loading trainFold
@@ -21,9 +21,10 @@ def accuracy10Fold(dataset=None,path="./Data"):
 
 		#making decision Tree on this trainFold
 		tree=buildtree(trainFoldData)
-		print("Testing model for Testing fold",f)
+		#print("Testing model for Testing fold",f)
 		#Loading tesfold to check accuracy of the model
 		testFoldData=pickle.load(open(foldPath + "testFold_"+str(f)+".p","rb"))
+		
 		# Checking target class for each observation in test fold
 		trueMatch=0
 		totalCmp=0
@@ -36,8 +37,9 @@ def accuracy10Fold(dataset=None,path="./Data"):
 		accuracy=trueMatch/float(totalCmp)
 		print("Accuracy for Testing fold",f ,accuracy)
 		accuracyList.append(accuracy)
-		print(accuracyList)
+		#print(accuracyList)
 	finalAccuracy=sum(accuracyList)/float(10)
+	print("Final Accuracy of " ,dataset,finalAccuracy)
 	return finalAccuracy
 
 
