@@ -1,0 +1,109 @@
+
+#Q2a
+
+```{r q2a,message=FALSE,warning=FALSE,cache=TRUE,echo=TRUE}
+data<-read.table("./code/Data/wine/data.csv", header=TRUE, 
+    sep=",")
+
+View(data)
+library(Hmisc)
+res<-rcorr(as.matrix(data[,-14]))  
+
+
+flattenCorrMatrix <- function(cormat, pmat) {
+  ut <- upper.tri(cormat)
+  data.frame(
+    row = rownames(cormat)[row(cormat)[ut]],
+    column = rownames(cormat)[col(cormat)[ut]],
+    cor  =(cormat)[ut],
+    p = pmat[ut]
+    )
+}
+
+cor_table<-flattenCorrMatrix(res$r, res$P)
+cor_table<-cor_table[rev(order(cor_table$cor)),]
+View(cor_table)  
+
+
+library(ggplot)
+library(GGall)
+#plotting pair wise plot most correlated features
+g<-ggpairs(data[c("Total.Phenols","Flavanoids","OD280","Proanthocyanins")],title="Pairwise plot of 4 most correlated features")
+
+
+#plotting pair wise plot least correlated features
+g<-ggpairs(data[c("Malic.acid","Hue","Flavanoids","Non.Flavanoid.Phenols","color.intensity","OD280")],title="Pairwise plot of 4 least correlated features")
+```  
+
+
+
+#Q2b
+```{r q2b,message=FALSE,warning=FALSE,cache=TRUE,echo=TRUE }
+
+#Function to check % of closest neighbours (Through Euclidean example) having same classes  
+f2b<-function(data){
+  countd=0
+  count1=0
+  count2=0
+  count3=0
+  #For every data point 
+  for (i1 in 1:nrow(data)){
+    dmin=Inf
+    index=nrow(data)+1
+    x=data[i1,-14]
+    #For every other data point
+    for (i2 in 1:nrow(data)){
+      if(i1==i2){next}
+      else{
+      y=data[i2,-14]  
+      d=dist(rbind(x,y))
+      #If distance calculated is less than already minimum distance stored then update
+      if (d[1]<=dmin) {
+        dmin=d
+        index=i2}
+      }
+      
+      
+    }
+    #checking if classes of closest points are same.
+    if ((data[i1,14])==data[index,14]){countd=countd+1}
+    
+    #checking pairs which have class=1
+    if(data[i1,14]==1){
+      if(data[index,14]==1){count1=count1+1}
+      }
+    
+    #checking pairs which have class=2
+    if(data[i1,14]==2){
+      if(data[index,14]==2){count2=count2+1}
+      }
+    
+    #checking pairs which have class=3
+    if(data[i1,14]==3){
+      if(data[index,14]==3){count3=count3+1}
+      }
+  }
+  
+  x<-cbind(countd/nrow(data),count1/nrow(data[data$class==1,]),count2/nrow(data[data$class==2,]),count3/nrow(data[data$class==3,]))
+  return (x)
+}
+
+
+
+```
+
+
+#Q2c
+```{r q2c,message=FALSE,warning=FALSE,cache=TRUE,echo=TRUE }
+#Function to normalize every feature
+f2c<-function(data){
+  
+  norm_data<-scale(data[,-14])
+  norm_data<-cbind(norm_data,data$class)
+  colnames(norm_data)[14]<-'class'
+  norm_data<-as.data.frame(norm_data)
+  return (norm_data)
+  } 
+
+
+```

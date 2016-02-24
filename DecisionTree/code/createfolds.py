@@ -39,13 +39,13 @@ def createFold(dataset=None,path="./Data"):
 	#print(label)
 
 	#Performing Strattified K fold
-	'''
 	skf = StratifiedKFold(label, 10)
-	'''
+	
 
 	#Performing Stratified Kfold shuffle split
+	'''
 	skf=StratifiedShuffleSplit(label,10,test_size=0.25)
-
+	'''
 	
 
 

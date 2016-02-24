@@ -2,6 +2,7 @@
 
 
 import csv
+import pickle
 #Function to read the raw data file in pickle format
 def read(dataset=None,path="./Data",filename=None ,colname=None,sep=","):
 	filepath=path+ "/"+ dataset + "/" + filename
@@ -12,7 +13,8 @@ def read(dataset=None,path="./Data",filename=None ,colname=None,sep=","):
 	#converting numerical outcome into float
 	for i in range(0,len(my_data)):
 		for j in range(0,len(my_data[i])-1):
-			my_data[i][j]=float(my_data[i][j])
+			if isinstance(my_data[i][j],int) or isinstance(my_data[i][j],float):
+				my_data[i][j]=float(my_data[i][j])
 			
 	colname=[colname]
 	my_data=colname+my_data
@@ -50,7 +52,49 @@ validation(dataset="balancescale")
 '''
 
 #banknote:
+'''
 colname=['variance','skewness','curtosis','entropy','class']
 read(dataset="banknote",filename="banknote.data",colname=colname)
 validation(dataset="banknote")
+'''
 
+#Blood
+'''
+colname=['Recency','Frequecy','ccc_blood','times','donated']
+read(dataset="blood",filename="transfusion.data",colname=colname)
+import createFolds
+createFolds.createFold(dataset="blood")
+import script
+script.printtree(dataset="blood")
+accuracy.accuracy10Fold(dataset="blood")
+'''
+
+#breast cancer
+'''
+colname=["code_number","thickness","cell_size","cell_shape","Mar_Adhesion","single_cell_size","Nuclie","Chromatin","Nucleoli","Mitoses","class"]
+readdata.read(dataset="breastcancer",filename="breastcancer.data",colname=colname)
+'''
+
+#car
+'''
+colname=["buying","maint","doors","persons","lug_boot","safety"]
+readdata.read(dataset="car",filename="car.data",colname=colname)
+'''
+
+#customer
+'''
+colname=["region","Fresh","milk","grocery","Frozen","detergents","Deli","Channel"]
+readdata.read(dataset="customer",filename="customer.data",colname=colname)
+'''
+
+#haberman
+'''
+colname=["Age","Year","positive_nodes","status"]
+readdata.read(dataset="haberman",filename="haberman.data",colname=colname)
+'''
+
+#yeast
+'''
+colname=['name','mcg','gvh','alm','mit','erl','pox','vac','nuc','class']
+readdata.read(dataset="haberman",filename="haberman.data",colname=colname)
+'''
