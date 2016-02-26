@@ -96,5 +96,5 @@ readdata.read(dataset="haberman",filename="haberman.data",colname=colname)
 #yeast
 '''
 colname=['name','mcg','gvh','alm','mit','erl','pox','vac','nuc','class']
-readdata.read(dataset="haberman",filename="haberman.data",colname=colname)
+readdata.read(dataset="yeast",filename="yeast.data",colname=colname)
 '''

@@ -6,6 +6,13 @@ from buildtree import *
 #from buildtree_pessimistic import *
 from drawtree import * 
 from sklearn.metrics import confusion_matrix
+from prune import *
+from sklearn.metrics import classification_report
+from sklearn.preprocessing import label_binarize
+from sklearn.metrics import roc_curve
+from sklearn.metrics import roc_auc_score
+
+
 
 '''
 Function to calculate accuracy of decision tree 
@@ -26,17 +33,11 @@ def accuracy10Fold(dataset=None,path="./Data"):
 		#making normal decision Tree on this trainFold
 		tree=buildtree(trainFoldData)
 		
+		#pruning the tree using pessimistic error or mdl error
+		tree=prune(tree)
 
 		#making pessimistic decision tree on this trainfold
-		'''
-		tree=buildtree_pessimistic(trainFoldData)
-		'''
-
-		'''
-		writepath_pes=path+ "/"+ dataset + "/treeview_pes_" +str(f)+ ".jpg"
-		colname=['sepal_length','sepal_width','petal_length','petal_width']
-		drawtree(tree=tree,jpeg=writepath_pes,colname=colname)
-		'''
+		
 
 		#print("Testing model for Testing fold",f)
 		#Loading tesfold to check accuracy of the model
@@ -74,13 +75,6 @@ def accuracy10Fold(dataset=None,path="./Data"):
 
 def accuracyFold(dataset=None,f=None,path="./Data"):
 	
-	#loading col names
-	#filepath=path+ "/"+ dataset + "/" + "data.p"
-	#mainData=pickle.load(open(filepath,"rb"))
-	#print(mainData[0])    
-
-
-
 	foldPath=path+"/" + dataset + "/folds/"
 	trainFoldData=pickle.load(open(foldPath + "trainFold_"+str(f)+".p","rb"))
 
@@ -94,7 +88,6 @@ def accuracyFold(dataset=None,f=None,path="./Data"):
 	actual=[]
 	predicted=[]	
 	for obs in testFoldData:
-			#print("obs is",obs)
 			totalCmp=totalCmp+1
 			result=mdclassify(obs,tree)
 			#print("outcome is",result)
@@ -104,14 +97,19 @@ def accuracyFold(dataset=None,f=None,path="./Data"):
 			if obs[-1] == result:
 				trueMatch=trueMatch+1
 	accuracy=trueMatch/float(totalCmp)
+	createLabels(dataset=dataset)
 	labels=pickle.load(open(path+"/"+dataset+"/labels.p","rb"))
-	print(actual)
-	print(predicted)
-	cf=confusion_matrix(actual,predicted,labels=labels)
-	pickle.dump(cf,open(path+"/"+dataset+"/folds/cf_"+str(f)+".p","wb"))
-	print("Accuracy for Testing fold",f ,accuracy)
-
-
+	target_names = labels
+	print(classification_report(actual, predicted ,target_names=target_names))
+	'''
+	pb,ab=binarize(actual,predicted)
+	fpr, tpr, thresholds = roc_curve(pb, ab, pos_label=2)
+	df = pd.DataFrame(dict(fpr=fpr, tpr=tpr))
+	ggplot(df, aes(x='fpr', y='tpr')) +\
+    geom_line() +\
+    geom_abline(linetype='dashed')
+    '''  
+    
 def createLabels(dataset=None):
 	filepath="./Data"+ "/"+ dataset + "/" + "data.p"
 	data=pickle.load(open(filepath,"rb"))
@@ -121,4 +119,25 @@ def createLabels(dataset=None):
 		else: labelDict[row[len(row)-1]]=1
 	#print(labelDict)
 	pickle.dump(labelDict.keys(),open('./Data/'+dataset+'/labels.p',"wb"))
-	#return labelDict.keys()
+	#return labelDict.keys()  
+
+def binarize(actual,predicted):	
+	labelDict={}
+	actual_b=[]
+	predicted_b=[]
+	i=0
+	for c in actual:
+		if c in labelDict:continue
+		else:
+			labelDict[c]=i
+			i=i+1
+
+	for  c in actual:
+		actual_b.append(labelDict[c])
+
+
+	for c in predicted: 
+		predicted_b.append(labelDict[c])
+	
+	return (predicted_b,actual_b)	
+

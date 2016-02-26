@@ -7,7 +7,7 @@ leafs_count=0
 pes_er=1
 
 
-def pessimistic_error(rows):
+def validation_error(rows):
     class_dict=uniquecounts(rows)
     #print(class_dict)
     te=sum([i for i in class_dict.values() if i!=max(class_dict.values())])
@@ -19,10 +19,10 @@ def pessimistic_error(rows):
 '''
 Building Tree from Generalize pessimistic error
 approach i,e 'll stop growing tree once Generalize pessimisric error
-starts growing
+starts growing for a branch
 '''
 from impurity import *
-def buildtree_pessimistic(rows,scoref=entropy):
+def buildtree_validation(rows,scoref=entropy):
   
 
   if len(rows)==0: return decisionnode() 
@@ -35,7 +35,8 @@ def buildtree_pessimistic(rows,scoref=entropy):
   #print("pessimistic error is",pes_er)
   #return decisionnode()
   if leafs_count > 2:
-        if pessimistic_error(rows)<=pes_er:
+        #print("Here",len(rows))
+        if validation_error(rows)<=pes_er:
             pes_er=pessimistic_error(rows)
         else:
             return decisionnode(results=uniquecounts(rows))
@@ -68,9 +69,9 @@ def buildtree_pessimistic(rows,scoref=entropy):
         best_gain=gain
         best_criteria=(col,value)
         best_sets=(set1,set2)
-  
+ 
   # Create the sub branches only if generalization error is not increased  
-  if best_gain>0:
+  elif best_gain>0:
     trueBranch=buildtree_pessimistic(best_sets[0])
     falseBranch=buildtree_pessimistic(best_sets[1])
     return decisionnode(col=best_criteria[0],value=best_criteria[1],

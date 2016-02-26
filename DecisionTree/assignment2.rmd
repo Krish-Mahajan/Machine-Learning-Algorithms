@@ -1,3 +1,6 @@
+---
+output: html_document
+---
 
 $$  
 \begin{aligned}  
@@ -18,7 +21,9 @@ $$
 $$
 
 
-#Q1
+#Q1   
+[Module:q1/q1.rmd](./code/q1/q1.rmd)  
+
 **(a)** **Calculate the average value and standard deviation for each of the four features.**  
 **(soln)**   
 
@@ -63,22 +68,26 @@ $$
 ![results](./code/q1/pw.png)  
 
 
-[Module:q1/q1.rmd](./code/q1/q1.rmd)   
+   
 
 
 
 #Q2  
+
+[Module:q2/q2.rmd](./code/q2/q2.rmd)  
+
 **(a)** **Provide pairwise scatter plots for four most correlated and four least correlated pairs of features, using Pearson's correlation coefficient. Label all axes in all your plots and select fonts of appropriate style and size. Experiment with different ways to plot these scatter plots and choose the one most visually appealing and most professionally looking **  
 
 **(soln)**   
 *_Four most correlated pairs are:_*   
 
-| Feature1      | Feature2       | cor  |
-|---------------|----------------|------|
-| Total.Phenols | Flavanoids     | 0.86 |
-| Flavanoids    | OD280          | 0.78 |
-| Total.Phenols | OD280          | 0.69 |
-| Flavanoids    | Proanthocyanis | 0.65 |    
+
+| Feature 1             | Feature 2             | cor  |
+|-----------------------|-----------------------|------|
+| Flavanoids            | Non.Flavanoid.Phenols | 0.86 |
+| Non.Flavanoid.Phenols | Proline               | 0.78 |
+| Flavanoids            | Proline               | 0.69 |
+| Non.Flavanoid.Phenols | color.intensity       | 0.65 | 
 
 
 ![results](./code/q2/a.png)
@@ -86,17 +95,17 @@ $$
 
 *_Four least correlated pairs are_:*  
 
-
-| Feature1               | Feature2               | cor   |
-|------------------------|------------------------|-------|
-| Malic.acid             | Hue                    | -0.56 |
-| Flavanoids             | Non Flavanoids Phenols | -0.53 |
-| color.intensity        | Hue                    | -0.52 |
-| Non Flavanoids Phenols | OD280                  | -0.50 |  
+| Feature 1         | Feature 2       | cor   |
+|-------------------|-----------------|-------|
+| Alcalinity.of.ash | color.intensity | 0.009 |
+| Alcalinity.of.ash | Proline         | 0.003 |
+| color.intensity   | Hue             | -0.02 |
 
 
 
 ![results](./code/q2/b.png)  
+
+
 
 
 **(b)** **Use Euclidean distance to find the closest example to every example available in the data set (exclude the class variable). Calculate the percentage of points whose closest neighbors have the same class label (for data set as a whole and also for each class).**  
@@ -104,8 +113,8 @@ $$
 I used Following Algorithm to compute this ques:  
 1)For every observation i find out it closest Euclidean neighbour and checked if they have same class(Type of wine)   
 2) %  of closest points with same class label on whole dataset=$\textbf{Total pairs with same classes/size(data)}$     
-3) % of closest points with particular class label $C_i$ for  class $C_i$=
-$\textbf{(Total pairs with same class C_i/Total number of observation with class=C_i)}$
+3) % of closest points with particular class label $C_i$ for  class Ci=
+$\textbf{Total pairs with same class Ci/Total number of observation with class Ci}$
 
 Results:  
 
@@ -118,18 +127,57 @@ Results:
 **(c)** **Repeat the previous step but after the data set is normalized using first 0-1 normalization and then z-score normalization. Investigate the reasons for discrepancy and provide evidence to support every one of your claims. Provide the code you used for normalizing and visualizing the data.**    
 **(soln)**  
 I used Following Algorithm to compute this ques:  
-1)First i normalized all the columns of the wine dataset so that each column's mean=0 and standard deviation=1  
-2) Then i passed this normalized dataset to Algorithm developed in above in part.  
 
-Results:  
+1)First i normalized(Z score) all the columns of the wine dataset so that each column's mean=0 and standard deviation=1  
+2) Then i passed this normalized dataset to Algorithm developed in above in part.  
+3) Then i did 0-1 transfromation of the original dataset and passed this dataset to the alogrithm in above in part.  
+
+Results:    
+
+**_Z Score_**
 
 | whole_dataset | class 1 | class2 | class3 |
 |---------------|---------|--------|--------|
 | 95.1%         | 100%    | 88.7%  | 100%   |
 
+**_0-1 Normalization_**  
 
 
-[Module:q2/q2.rmd](./code/q2/q2.rmd)
+| whole_dataset | class 1 | class2 | class3 |
+|---------------|---------|--------|--------|
+| 94.9%         | 100%    | 87.3%  | 100%   |
+
+Normalization or standardization is very important techniques especially while dealing with parameters of different units and scale.For example in calculating Euclidean distance all the parameters should have same scale for a fair comparison between them. Both of these techniques have their drawbacks.For ex, if we have outliers in our original data then normalizing(0-1 transformation) 'll scale the normal data to very narrow interval.In practice most of the datasets have outliers.
+Also drawback using standardization(Z score) is that it don't bound the data as in 0-1 normalization.However, standardizing is the preferred method because it produces meaningful information about each data point, and where it falls  within its normal distribution, plus provides a crude indicator of outliers (i.e., anything above or below a Z-Score of ±4.    
+Here since wine data have no outliers or missing value so  both the techniques are giving almost same results.  
+
+
+#Q3 
+**(a)** **Download and study the Auto MPG data set from the UCI Machine Learning Repository.Import the data set into Tableau. Create a new feature make (Honda, Toyota, . . . ) that contains the make of the automobile (extract this feature automatically from other features through Tableau) and in a single figure generate box plots of mpg for 10 makes of your choice. Then, for 5 makes of your choice create scatter plots of weight versus mpg. Include all figures in your submission and comment on what you observe.** 
+**(soln)**  
+
+
+**_Boxplot_** 
+
+![results](./code/q3/10-2.png)  
+
+
+**_scatterplot_** 
+
+![results](./code/q3/5-2g.png) 
+
+
+**(b)** **Pick 3 data sets of your choice from UCI Machine Learning Repository. Visualize each the data set in meaningful ways that show hidden patterns. Experiment with colors, size, shapes, filters,groups and sets. Feel free to experiment with other advanced functionalities of Tableau.**  
+
+
+**(c)**  **Tell us about your experience with Tableau. What did you learn? What did you like/dislike about Tableau?**  
+**(soln)**  
+1)Tableau prides itself on what it calls being "Rapid Fire Intelligence".    
+2)I call it being all about the journey of data exploration and discovery by taking a analyst-like approach.    
+3) Tableau allows you to move quickly through data and ask a number of different questions in a number of different ways.    
+4) Example: if you are looking at some data that's based on values but want to flip it to dimensional data and look at it in a historgram its literally three clicks.    
+5) Tableau is adapted for on-screen presentation and it is not easy to run it with its API.  
+6) Tableau is not apt to handle big data and it not ideal for unstructured data.  
 
 #Q4
 Implementing classification trees and evaluating their accuracy  
@@ -146,7 +194,7 @@ Here are following explanation of python Modules  that i coded while implementin
 [Module:readdata.py](./code/buildtree.py)
 
 ####Step 2) Gini Measure to split dataset:  
-I have used giniimpurity instead of entropy as asked to select the criteria to split the dataset.  Giniimpurity is simply the expected error rate of assiging wrong class to a random observation. I have testing dataset with all three impurity measures(gini,information gain & variance)   
+I have used giniimpurity instead of entropy as asked to select the criteria to split the dataset.  Giniimpurity is simply the expected error rate of assiging wrong class to a random observation. I have tested dataset with all three impurity measures(gini,information gain & variance)   
 [Module:impurity.py](./code/impurity.py)
 
 
@@ -170,13 +218,16 @@ visualise all the decision node and their corresponding branches.
 
 Here are some examples of final decision tree model when i ran them on the following famous datasets:  
 
-[**Iris**](https://archive.ics.uci.edu/ml/datasets/Iris)    
+[**Iris**](https://archive.ics.uci.edu/ml/datasets/Iris)  
+
 ![results](./code/Data/iris/treeview.jpg)    
 
 [**Wine**](https://archive.ics.uci.edu/ml/datasets/Wine)  
+
 ![results](./code/Data/wine/treeview.jpg)   
 
-[**BankNote**](https://archive.ics.uci.edu/ml/datasets/banknote+authentication) 
+[**BankNote**](https://archive.ics.uci.edu/ml/datasets/banknote+authentication)  
+
 ![results](./code/Data/banknote/treeview.jpg)
 
 **(b)**  **Implement 10-fold cross-validation to evaluate the accuracy of your algorithm on 10 different data sets from the UCI Machine Learning Repository. Select only those data sets where all features are numerical.**  
@@ -186,7 +237,7 @@ Here are the following module which were used to implement 10 Fold cross validat
 
 ####Step 1) Build a classify Algorithm:  
 **(1)** Built a classifier function which predicts the class of any test observation 
-based on the rules of decision node.It turned out to be simple recursive function which starts at root decision node and traves along the branches till the leaf node c\ is reached which is its final class.     
+based on the rules of decision node.It turned out to be simple recursive function which starts at root decision node and traves along the branches till the leaf node c is reached which is its final class.     
 This classifier has also the functionality to handle NA cases in which it simply
 traverse both the branches(True Branch+False Branch ) and predict the final class as weigthed average of possible classes predicted in each branch.  
 [Module:classifier.py](./code/classifier.py)  
@@ -219,14 +270,16 @@ All the dataset were obtained from UCI machine learning repository.
 
 
 
-[**Wine**](https://archive.ics.uci.edu/ml/datasets/Wine)  
-![results](./code/Data/wine/efficiency.png)   
+[**Wine**](https://archive.ics.uci.edu/ml/datasets/Wine)   
+
+![results](./code/Data/wine/efficiency.png)     
 
 
 
 
 
-[**BankNote**](https://archive.ics.uci.edu/ml/datasets/banknote+authentication)   
+[**BankNote**](https://archive.ics.uci.edu/ml/datasets/banknote+authentication)  
+  
 ![results](./code/Data/banknote/efficiency.png)  
 
 
@@ -273,3 +326,162 @@ logarithm.
 4)Gini is better to minimize misclassification error  
 5)Gini is more biased to find the largest class and "entropy" tends to find groups of classes that make up to ~50% of the data. (http://paginas.fe.up.pt/~ec/files_1011/week%2008%20-%20Decision%20Trees.pdf)  
 
+
+#Q5 
+**(a)** **Use `pessimistic' estimates of the generalization error by adding a penalty factor 0.5 for each node in the tree (see Textbook page 181).**  
+
+[Module:prune.py](./code/prune.py) 
+
+**(soln)** For this problem , i used post pruning to incorporance pessimistic generlization error. Basically  pruning principle is whenever a node is splitting in two leafs and if the pessimistic error is increasing then that splitting is nullified. Naturally This a tradeoff of model complexity vs accuracy.  
+I applied following formula to calculate pessimistic generalization error:  
+$$  
+\begin{aligned}  
+\textbf{error= (e(t) + o(t))/(N)}  
+\end{aligned}
+$$
+Following are the results when i applied pruning to following datasets(Left side tree without pruning,Right side is tree after pruning using pessimistic error)  
+[**Iris**](https://archive.ics.uci.edu/ml/datasets/Iris)     
+
+![results](./code/Data/iris/cmp1.jpg)   
+
+![results](./code/Data/iris/cmp2.png)   
+
+
+[**Wine**](https://archive.ics.uci.edu/ml/datasets/Wine)     
+
+![results](./code/Data/wine/cmp1.jpg)   
+
+
+![results](./code/Data/wine/cmp2.png)  
+
+
+[**BankNote**](https://archive.ics.uci.edu/ml/datasets/banknote+authentication)      
+
+![results](./code/Data/banknote/treeview_prun.jpg)   
+
+
+![results](./code/Data/banknote/cmp2.png)  
+
+
+As you can see that efficiency is little decreased when pruning through Pessimistic error approach but model complexsity also hugely decreased  
+
+**(b)** **Use a validation set that consists of 25% of the training partition**  
+**(soln)**  
+[Module:buildtree_validation.py](./code/buildtree_validation.py)  
+Here i first divided the dataset to 90% Train 10% test.  
+Hen i took training data and carved 25% of it as Validation set.   
+Here are the steps of the algorithm i implemented for this:    
+1)After the splitting into training and testing and validation.I started building   decision tree as per initial stopping criteria (All classes in one leaf node Q4a)    
+2)At each level of tree i am testing it with validation set.  
+3)Naturally when the tree grows Validation set accuracy also increases but when the tree starts growing too complex validation set accuracy stops increasing steeply.  
+4)At this point i stop the algorithm and concludes my decision tree.   
+
+Please note : I mainted global variable to always take into account no of leafs and no of nodes in the tree.
+This Algorithm time complexsity is very much so i tested only for following dataset.
+
+[**BankNote**](https://archive.ics.uci.edu/ml/datasets/banknote+authentication)      
+
+![results](./code/Data/banknote/treeview_pes.jpg)   
+
+Please observe this model is very different from pessimistic error and minimum description approach.It's accuracy came out be only ~60%.This approach is good enough only if there are lot of classes.  
+  
+
+**(c)** **Use the minimum description length principle, as explained in Question #8, page 201 of your Textbook**  
+**(soln)**  
+[Module:prune.py](./code/prune.py)  
+MDL is defined as follows:  
+cost(tree,data)= cost(tree)+cost(data|tree)  
+**overall cost(MDL) = (no of nodes)log2(m)+ (no of leaves)log2(k)+ (no of errors)log2(n)**
+
+ 
+Here M=no. of attributes & K= no. of classes  
+
+I have  encoded this formula and did post pruning whenever MDL increases on splitting a node in to branches.  
+i,e MDL of a node(if not splitted)=(n)log2(m)+ (l)log2(k)+ e1*log2(n)  
+    MDL of a node (if splitted)= (n+1)log2(m) + (l+2)log2(k) + e2log2(n)  
+    
+so $\delta$ = **log2(m)+ 2(log2(k)) + (e2-e1)log2(n)**     
+Thus whenever delta is increasing i am pruning that node.  
+
+Here are results when i applied this sort of pruning on iris,wine,& bank dataset  
+(Left side tree without pruning,Right side is tree after pruning using mdl error)  
+
+[**Iris**](https://archive.ics.uci.edu/ml/datasets/Iris)     
+
+![results](./code/Data/iris/cmp3.png)   
+
+![results](./code/Data/iris/cmp4.png)  
+
+
+[**Wine**](https://archive.ics.uci.edu/ml/datasets/Wine)     
+
+![results](./code/Data/wine/cmp3.png)   
+
+
+![results](./code/Data/wine/cmp4.png)    
+
+
+[**BankNote**](https://archive.ics.uci.edu/ml/datasets/banknote+authentication)      
+
+![results](./code/Data/banknote/treeview_prun_mdl.jpg)   
+
+
+![results](./code/Data/banknote/cmp4.png)   
+
+As you can see that efficiency is  decreased when pruning through MDL but model complexsity also hugely decreased a lot.Also observe that we get different models when pruning through MDL and Pessimistic error approach.  
+
+
+Here are the precision,accuracy,f1,ROC scores i got after averaging these measures during K fold validation for pessimistic error approach.  
+[Module:accuracy.py](./code/accuracy.py) 
+
+[**Iris**](https://archive.ics.uci.edu/ml/datasets/Iris)     
+
+![results](./code/Data/iris/measures.png)
+
+
+[**Wine**](https://archive.ics.uci.edu/ml/datasets/Wine)     
+
+![results](./code/Data/wine/measures.png) 
+
+
+
+[**BankNote**](https://archive.ics.uci.edu/ml/datasets/banknote+authentication)      
+
+![results](./code/Data/banknote/measures.png)    
+
+[**car**](https://archive.ics.uci.edu/ml/datasets/Car+Evaluation)   
+
+![results](./code/Data/car/measures.png)    
+
+
+
+
+
+[**haberman**](https://archive.ics.uci.edu/ml/datasets/Haberman's+Survival)   
+
+![results](./code/Data/haberman/measures.png)  
+
+
+
+[**blood**](https://archive.ics.uci.edu/ml/datasets/Blood+Transfusion+Service+Center) 
+
+![results](./code/Data/blood/measures.png)  
+
+
+
+
+[**yeast**](https://archive.ics.uci.edu/ml/datasets/Yeast)    
+
+![results](./code/Data/yeast/measures.png)  
+
+
+
+[**Breastcancer**](https://archive.ics.uci.edu/ml/datasets/Breast+Cancer+Wisconsin+(Original))      
+
+![results](./code/Data/breastcancer/measures.png)  
+
+
+
+[**customer**](https://archive.ics.uci.edu/ml/datasets/Wholesale+customers)   
+
+![results](./code/Data/customer/measures.png)  
