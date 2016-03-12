@@ -34,7 +34,7 @@ def accuracy10Fold(dataset=None,path="./Data"):
 		tree=buildtree(trainFoldData)
 		
 		#pruning the tree using pessimistic error or mdl error
-		tree=prune(tree)
+		#tree=prune(tree)
 
 		#making pessimistic decision tree on this trainfold
 		
