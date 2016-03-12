@@ -20,7 +20,8 @@ def printtree(dataset=None,path="./Data",filename="data.p"):
 
         tree=buildtree(rows=data[1:len(data)])
         drawtree(tree=tree,jpeg=writepath,colname=data[0]) 
-        #tree_prun=prune(tree)
+        
+        tree_prun=prune(tree)
         drawtree(tree=tree_prun,jpeg=writepath_prun,colname=data[0]) 
         tree_pes=buildtree_pessimistic(rows=data[1:len(data)])
         #colname=['sepal_length','sepal_width','petal_length','petal_width']
