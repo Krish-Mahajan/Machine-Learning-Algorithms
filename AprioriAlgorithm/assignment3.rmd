@@ -1,0 +1,48 @@
+$$  
+\begin{aligned}  
+\textbf{Data Mining:Assignment 3}  
+\end{aligned}
+$$
+
+$$  
+\begin{aligned}
+========================
+\end{aligned}
+$$
+
+$$  
+\begin{aligned} 
+\textbf{Krishna Mahajan,0003572903}   
+\end{aligned}
+$$
+
+#Q3
+
+###A)  
+Please find the code for both $F_{k-1} X F_{k-1}$ and $F_{k-1} X F_1$.  
+[Module:aprioriGn.py](./Code/aprioriGen.py)  
+
+I maintained counter for count of candidate itemsets and count of frequent itemsets in actual **apriori** code which can be seen here  
+[Module:apriori.py](./Code/apriori.py)  
+
+Instructions to run the code can be seen in the attached readme.md file.  
+
+###B)  
+In this problem i took up datasets from UCI repository which were categorical,numerical or both and correspondingly binarized the  datasets removing redundant columns.I implemented binarization function in R.  
+[Module:binarization.r](./Code/binarization.rmd)
+
+[Dataset 1:Car Evaluation]("https://archive.ics.uci.edu/ml/datasets/Car+Evaluation")  
+
+This is completely categorical dataset with dimension $1728 * 7$. After removing some redundant columns i binarized this dataset and converted into  csv file.(This binarized file can be seen as binarize_car.csv in ./Data/Car folder).  
+After executing apriori code on this dataset using the two candidate generation methods i got following results for three different threshold values of support.  
+
+$F_{k-1} X F_{k-1}$ 
+
+| support | candidate_itemsets | frequent_itemsets |
+|---------|--------------------|-------------------|
+| 0.01    | 190                | 84                |
+| 0.1     | 78                 | 18                |
+| 0.3     | 12                 | 1                 |
+
+
+
