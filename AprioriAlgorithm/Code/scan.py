@@ -42,6 +42,7 @@ def scanDataset(dataset,candidates,min_support):
 
 
 ################################################################
+
 #d=[[1, 3, 4], [2, 3, 5], [1, 2, 3, 5], [2, 5]]
 
 '''
@@ -51,7 +52,16 @@ d=[      ['bread','milk'],
 		 ['bread','milk','diaper','beer'],
 		 ['bread','milk','diaper','cola']
  ]
+
 '''
+'''
+d=[      ['A','B','C','E'],
+		 ['A','C','D','E'],
+		 ['B','C','E'],
+		 ['A','C','D','E'],
+		 ['C','D','E'],
+		 ['A','D','E']
+ 	]
 '''
 #c1=create_itemset1(d)
 #print(c1)
@@ -61,13 +71,17 @@ d=[      ['bread','milk'],
 #print(L1)
 #print(support_data)
 #print(apriori.aprioriGen(L1,2))
+'''
 with open('./Data/Groceries/trans_1.json','r') as fp:
 	d=json.load(fp)
-l,support_data,c,f=apriori.apriori(d,minsupport=0.01)
+'''
+#l,support_data,c,f=apriori.apriori(d,minsupport=0.5)
 #print("l is",l)
 #print("support is",support_data)
-print("generated itemset is",c)
-print("frequent itemset",f)
+#print("generated itemset is",c)
+#print("frequent itemset",f)
 #print("support data is",support_data)
-#mining.generateRules(l,support_data)
-'''
+#rules,noofrules=mining.generateRules(l,support_data,min_confidence=0.5)
+#print("rules generated",noofrules)
+#print("rules pruned",len(rules))
+

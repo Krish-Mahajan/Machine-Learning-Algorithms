@@ -107,7 +107,572 @@ if (window.hljs && document.readyState && document.readyState === "complete") {
 </tr>
 </tbody>
 </table>
+<p><span class="math">\(F_{k-1} X F_1\)</span></p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">support</th>
+<th align="left">candidate_itemsets</th>
+<th align="left">frequent_itemsets</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">0.01</td>
+<td align="left">281</td>
+<td align="left">84</td>
+</tr>
+<tr class="even">
+<td align="left">0.1</td>
+<td align="left">64</td>
+<td align="left">18</td>
+</tr>
+<tr class="odd">
+<td align="left">0.3</td>
+<td align="left">12</td>
+<td align="left">1</td>
+</tr>
+</tbody>
+</table>
+<p>All the corresponding frequent itemsets with the their corresponding support values can be seen in ./Code/Data/Car/support_*.csv files.</p>
+<p><a href title="https://archive.ics.uci.edu/ml/datasets/Nursery">Dataset 2: Nursery store</a></p>
+<p>This is completely categorical dataset with dimension <span class="math">\(12960 * 9\)</span>.I binarized this dataset and converted into csv file.(This binarized file can be seen as binarize_car.csv in ./Data/Nursery folder).<br />After executing apriori code on this dataset using the two candidate generation methods i got following results for three different threshold values of support.</p>
+<p><span class="math">\(F_{k-1} X F_{k-1}\)</span></p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">support</th>
+<th align="left">candidate_itemsets</th>
+<th align="left">frequent_itemsets</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">0.01</td>
+<td align="left">23880</td>
+<td align="left">7028</td>
+</tr>
+<tr class="even">
+<td align="left">0.1</td>
+<td align="left">870</td>
+<td align="left">164</td>
+</tr>
+<tr class="odd">
+<td align="left">0.3</td>
+<td align="left">151</td>
+<td align="left">17</td>
+</tr>
+</tbody>
+</table>
+<p><span class="math">\(F_{k-1} X F_1\)</span></p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">support</th>
+<th align="left">candidate_itemsets</th>
+<th align="left">frequent_itemsets</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">0.01</td>
+<td align="left">47372</td>
+<td align="left">7034</td>
+</tr>
+<tr class="even">
+<td align="left">0.1</td>
+<td align="left">1550</td>
+<td align="left">164</td>
+</tr>
+<tr class="odd">
+<td align="left">0.3</td>
+<td align="left">159</td>
+<td align="left">17</td>
+</tr>
+</tbody>
+</table>
+<p>All the corresponding frequent itemsets with the their corresponding support values can be seen in ./Code/nursery/Car/support_*.csv files.</p>
+<p><a href title="http://fimi.ua.ac.be/data/retail.pdf">Dataset 3:Belgian store</a></p>
+<p>This is actual transactional dataset of a belgian store and most practical dataset to apply Apriori Algorithm.This datasets has more than 90K transactions and over 500+ different items. After executing apriori code on this dataset using the two candidate generation methods i got following results for three different threshold values of support.</p>
+<p><span class="math">\(F_{k-1} X F_{k-1}\)</span></p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">support</th>
+<th align="left">candidate_itemsets</th>
+<th align="left">frequent_itemsets</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">0.01</td>
+<td align="left">3927</td>
+<td align="left">217</td>
+</tr>
+<tr class="even">
+<td align="left">0.1</td>
+<td align="left">178</td>
+<td align="left">5</td>
+</tr>
+<tr class="odd">
+<td align="left">0.3</td>
+<td align="left">168</td>
+<td align="left">0</td>
+</tr>
+</tbody>
+</table>
+<p><span class="math">\(F_{k-1} X F_1\)</span></p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">support</th>
+<th align="left">candidate_itemsets</th>
+<th align="left">frequent_itemsets</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">0.01</td>
+<td align="left">4418</td>
+<td align="left">217</td>
+</tr>
+<tr class="even">
+<td align="left">0.1</td>
+<td align="left">178</td>
+<td align="left">5</td>
+</tr>
+<tr class="odd">
+<td align="left">0.3</td>
+<td align="left">168</td>
+<td align="left">0</td>
+</tr>
+</tbody>
+</table>
+<p>All the corresponding frequent itemsets with the their corresponding support values can be seen in ./Code/Data/Groceries/support_*.csv files.</p>
 </div>
+<div id="c" class="section level3">
+<h3>C)</h3>
+<p><strong>Maximal Frequent Itemset</strong> : Frequent item set <span class="math">\(X \epsilon F\)</span> is maximal if it does not have any frequent supersets<br /><a href="./Code/maximal_itemset.py">module:maximal_frequent_itemset.py</a></p>
+<p><strong>Closed Frequent Itemset</strong> : Frequent item set <span class="math">\(X \epsilon F\)</span> is closed if it has no superset with the same frequency.<br /><a href="./Code/closed_itemset.py">module:closed_frequent_itemset.py</a></p>
+<p><a href title="https://archive.ics.uci.edu/ml/datasets/Car+Evaluation">Dataset 1:Car Evaluation</a></p>
+<p><span class="math">\(F_{k-1} X F_{k-1}\)</span></p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">support</th>
+<th align="left">candidate_itemsets</th>
+<th align="left">frequent_itemsets</th>
+<th align="left">maximal_frequent</th>
+<th align="left">closed_frequent</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">0.01</td>
+<td align="left">190</td>
+<td align="left">84</td>
+<td align="left">40</td>
+<td align="left">78</td>
+</tr>
+<tr class="even">
+<td align="left">0.1</td>
+<td align="left">78</td>
+<td align="left">18</td>
+<td align="left">9</td>
+<td align="left">18</td>
+</tr>
+<tr class="odd">
+<td align="left">0.3</td>
+<td align="left">12</td>
+<td align="left">1</td>
+<td align="left">1</td>
+<td align="left">1</td>
+</tr>
+</tbody>
+</table>
+<p><span class="math">\(F_{k-1} X F_1\)</span></p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">support</th>
+<th align="left">candidate_itemsets</th>
+<th align="left">frequent_itemsets</th>
+<th align="left">maximal_frequent</th>
+<th align="left">closed_frequent</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">0.01</td>
+<td align="left">281</td>
+<td align="left">84</td>
+<td align="left">40</td>
+<td align="left">78</td>
+</tr>
+<tr class="even">
+<td align="left">0.1</td>
+<td align="left">64</td>
+<td align="left">18</td>
+<td align="left">9</td>
+<td align="left">18</td>
+</tr>
+<tr class="odd">
+<td align="left">0.3</td>
+<td align="left">12</td>
+<td align="left">1</td>
+<td align="left">1</td>
+<td align="left">1</td>
+</tr>
+</tbody>
+</table>
+<p><a href title="https://archive.ics.uci.edu/ml/datasets/Nursery">Dataset 2: Nursery store</a></p>
+<p><span class="math">\(F_{k-1} X F_{k-1}\)</span></p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">support</th>
+<th align="left">candidate_itemsets</th>
+<th align="left">frequent_itemsets</th>
+<th align="left">maximal_frequent</th>
+<th align="left">closed_frequent</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">0.01</td>
+<td align="left">23880</td>
+<td align="left">7028</td>
+<td align="left">3294</td>
+<td align="left">2113</td>
+</tr>
+<tr class="even">
+<td align="left">0.1</td>
+<td align="left">870</td>
+<td align="left">164</td>
+<td align="left">111</td>
+<td align="left">75</td>
+</tr>
+<tr class="odd">
+<td align="left">0.3</td>
+<td align="left">151</td>
+<td align="left">17</td>
+<td align="left">15</td>
+<td align="left">5</td>
+</tr>
+</tbody>
+</table>
+<p><span class="math">\(F_{k-1} X F_1\)</span></p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">support</th>
+<th align="left">candidate_itemsets</th>
+<th align="left">frequent_itemsets</th>
+<th align="left">maximal_frequent</th>
+<th align="left">closed_frequent</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">0.01</td>
+<td align="left">47372</td>
+<td align="left">7034</td>
+<td align="left">3294</td>
+<td align="left">2113</td>
+</tr>
+<tr class="even">
+<td align="left">0.1</td>
+<td align="left">1550</td>
+<td align="left">164</td>
+<td align="left">111</td>
+<td align="left">75</td>
+</tr>
+<tr class="odd">
+<td align="left">0.3</td>
+<td align="left">159</td>
+<td align="left">17</td>
+<td align="left">15</td>
+<td align="left">5</td>
+</tr>
+</tbody>
+</table>
+<p><a href title="http://fimi.ua.ac.be/data/retail.pdf">Dataset 3:Belgian store</a></p>
+<p><span class="math">\(F_{k-1} X F_{k-1}\)</span></p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">support</th>
+<th align="left">candidate_itemsets</th>
+<th align="left">frequent_itemsets</th>
+<th align="left">maximal_frequent</th>
+<th align="left">closed_frequent</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">0.01</td>
+<td align="left">3927</td>
+<td align="left">217</td>
+<td align="left">159</td>
+<td align="left">172</td>
+</tr>
+<tr class="even">
+<td align="left">0.1</td>
+<td align="left">178</td>
+<td align="left">5</td>
+<td align="left">5</td>
+<td align="left">5</td>
+</tr>
+<tr class="odd">
+<td align="left">0.3</td>
+<td align="left">168</td>
+<td align="left">0</td>
+<td align="left">0</td>
+<td align="left">0</td>
+</tr>
+</tbody>
+</table>
+<p><span class="math">\(F_{k-1} X F_1\)</span></p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">support</th>
+<th align="left">candidate_itemsets</th>
+<th align="left">frequent_itemsets</th>
+<th align="left">maximal_frequent</th>
+<th align="left">closed_frequent</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">0.01</td>
+<td align="left">4418</td>
+<td align="left">217</td>
+<td align="left">159</td>
+<td align="left">172</td>
+</tr>
+<tr class="even">
+<td align="left">0.1</td>
+<td align="left">178</td>
+<td align="left">5</td>
+<td align="left">5</td>
+<td align="left">5</td>
+</tr>
+<tr class="odd">
+<td align="left">0.3</td>
+<td align="left">168</td>
+<td align="left">0</td>
+<td align="left">0</td>
+<td align="left">0</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="d" class="section level1">
+<h1>d)</h1>
+<p>The code for confidence based rules can be found here<br /><a href="./Code/mining.py">module:mining.py</a></p>
+<p><a href title="https://archive.ics.uci.edu/ml/datasets/Car+Evaluation">Dataset 1:Car Evaluation</a></p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">support</th>
+<th align="left">confidence</th>
+<th align="left">rules_generated</th>
+<th align="left">pruned_rules</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">0.01</td>
+<td align="left">0.25</td>
+<td align="left">175</td>
+<td align="left">59</td>
+</tr>
+<tr class="even">
+<td align="left">0.01</td>
+<td align="left">0.5</td>
+<td align="left">175</td>
+<td align="left">10</td>
+</tr>
+<tr class="odd">
+<td align="left">0.01</td>
+<td align="left">0.75</td>
+<td align="left">175</td>
+<td align="left">3</td>
+</tr>
+<tr class="even">
+<td align="left">0.1</td>
+<td align="left">0.25</td>
+<td align="left">16</td>
+<td align="left">11</td>
+</tr>
+<tr class="odd">
+<td align="left">0.1</td>
+<td align="left">0.50</td>
+<td align="left">16</td>
+<td align="left">8</td>
+</tr>
+<tr class="even">
+<td align="left">0.1</td>
+<td align="left">0.75</td>
+<td align="left">16</td>
+<td align="left">3</td>
+</tr>
+<tr class="odd">
+<td align="left">0.3</td>
+<td align="left">0.25</td>
+<td align="left">0</td>
+<td align="left">0</td>
+</tr>
+<tr class="even">
+<td align="left">0.3</td>
+<td align="left">0.50</td>
+<td align="left">0</td>
+<td align="left">0</td>
+</tr>
+<tr class="odd">
+<td align="left">0.3</td>
+<td align="left">0.75</td>
+<td align="left">0</td>
+<td align="left">0</td>
+</tr>
+</tbody>
+</table>
+<p><a href title="https://archive.ics.uci.edu/ml/datasets/Nursery">Dataset 2: Nursery store</a></p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">support</th>
+<th align="left">confidence</th>
+<th align="left">rules_generated</th>
+<th align="left">pruned_rules</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">0.01</td>
+<td align="left">0.25</td>
+<td align="left">47372</td>
+<td align="left">7034</td>
+</tr>
+<tr class="even">
+<td align="left">0.01</td>
+<td align="left">0.5</td>
+<td align="left">34462</td>
+<td align="left">754</td>
+</tr>
+<tr class="odd">
+<td align="left">0.01</td>
+<td align="left">0.75</td>
+<td align="left">34460</td>
+<td align="left">4</td>
+</tr>
+<tr class="even">
+<td align="left">0.1</td>
+<td align="left">0.25</td>
+<td align="left">281</td>
+<td align="left">270</td>
+</tr>
+<tr class="odd">
+<td align="left">0.1</td>
+<td align="left">0.50</td>
+<td align="left">281</td>
+<td align="left">65</td>
+</tr>
+<tr class="even">
+<td align="left">0.1</td>
+<td align="left">0.75</td>
+<td align="left">281</td>
+<td align="left">2</td>
+</tr>
+<tr class="odd">
+<td align="left">0.3</td>
+<td align="left">0.25</td>
+<td align="left">2</td>
+<td align="left">2</td>
+</tr>
+<tr class="even">
+<td align="left">0.3</td>
+<td align="left">0.50</td>
+<td align="left">2</td>
+<td align="left">2</td>
+</tr>
+<tr class="odd">
+<td align="left">0.3</td>
+<td align="left">0.75</td>
+<td align="left">2</td>
+<td align="left">2</td>
+</tr>
+</tbody>
+</table>
+<p><a href title="http://fimi.ua.ac.be/data/retail.pdf">Dataset 3:Belgian store</a></p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">support</th>
+<th align="left">confidence</th>
+<th align="left">rules_generated</th>
+<th align="left">pruned_rules</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">0.01</td>
+<td align="left">0.25</td>
+<td align="left">296</td>
+<td align="left">75</td>
+</tr>
+<tr class="even">
+<td align="left">0.01</td>
+<td align="left">0.5</td>
+<td align="left">296</td>
+<td align="left">2</td>
+</tr>
+<tr class="odd">
+<td align="left">0.01</td>
+<td align="left">0.75</td>
+<td align="left">296</td>
+<td align="left">2</td>
+</tr>
+<tr class="even">
+<td align="left">0.1</td>
+<td align="left">0.25</td>
+<td align="left">0</td>
+<td align="left">0</td>
+</tr>
+<tr class="odd">
+<td align="left">0.1</td>
+<td align="left">0.50</td>
+<td align="left">0</td>
+<td align="left">0</td>
+</tr>
+<tr class="even">
+<td align="left">0.1</td>
+<td align="left">0.75</td>
+<td align="left">0</td>
+<td align="left">0</td>
+</tr>
+<tr class="odd">
+<td align="left">0.3</td>
+<td align="left">0.25</td>
+<td align="left">0</td>
+<td align="left">0</td>
+</tr>
+<tr class="even">
+<td align="left">0.3</td>
+<td align="left">0.50</td>
+<td align="left">0</td>
+<td align="left">0</td>
+</tr>
+<tr class="odd">
+<td align="left">0.3</td>
+<td align="left">0.75</td>
+<td align="left">0</td>
+<td align="left">0</td>
+</tr>
+</tbody>
+</table>
 </div>
 
 

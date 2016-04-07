@@ -7,6 +7,7 @@ def aprioriGen2(freq_sets,k):
     retList=[]
     lenLk=len(freq_sets)
     #print("Lk is",lenLk)
+    #print(freq_sets)
     for i in range(lenLk):
         for j in range(i+1,lenLk):
             l1=list(freq_sets[i])[:k-2]
@@ -27,6 +28,7 @@ def aprioriGen1(freq_sets,c_1):
         l1=list(freq_sets[i])[:]
         l1.sort()
         #print("l1 is" ,l1)
+        #print("c1 is",c1)
         for j in range(len(c_1)):
             l2=list(c_1[j])[0]
             #print("l2 is",l2)

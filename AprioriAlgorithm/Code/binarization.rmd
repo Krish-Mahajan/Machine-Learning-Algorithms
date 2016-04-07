@@ -3,12 +3,15 @@
 #Q2
 ```{r q2,cache=TRUE,echo=TRUE,warning=FALSE,message=FALSE,error=FALSE,eval=FALSE }
 
-data<-read.csv("./Data/Car/car.txt",header=FALSE,sep=",")
-colnames(data)<-c('buying','maint','doors','persons','lug_boot','safety','class')
-
+#data<-read.csv("./Data/Car/car.txt",header=FALSE,sep=",")
+#colnames(data)<-c('buying','maint','doors','persons','lug_boot','safety','class')
 #Removing maint,lug_boot,persons 
 #data<-data[,-c("maint","persons","lug_boot","safety")]
-data<-data[,-c(2,4,5,6)]
+#data<-data[,-c(2,4,5,6)]
+
+data<-read.csv("./Data/nursery/nursery.data.txt",header=FALSE,sep=",")
+colnames(data)<-c('parents','has_nurs','form','children','housing','finance','social','health')
+
 
 bin_data<-binarize(data)
 #binarizing Car Data
@@ -29,7 +32,7 @@ for (i in 1:ncol(df)){
   colnames(df)[i]<-gsub(pattern="\\s", colnames(df)[i], replacement=" ") 
   #colnames(df)[i]<-gsub(pattern="\\d", colnames(df)[i], replacement=" ")
 }
-write.csv(bin_data,file="./Data/car/binarize_car.csv",row.names=FALSE,sep=",")
+write.csv(df,file="./Data/nursery/binarize_nursery.csv",row.names=FALSE,sep=",")
 return (df)
 }
 ```

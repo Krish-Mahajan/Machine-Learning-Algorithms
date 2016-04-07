@@ -45,4 +45,208 @@ $F_{k-1} X F_{k-1}$
 | 0.3     | 12                 | 1                 |
 
 
+$F_{k-1} X F_1$  
+
+| support | candidate_itemsets | frequent_itemsets |
+|---------|--------------------|-------------------|
+| 0.01    | 281                | 84                |
+| 0.1     | 64                 | 18                |
+| 0.3     | 12                 | 1                 |
+
+All the corresponding frequent itemsets with the their corresponding support values can be seen in ./Code/Data/Car/support_*.csv files.  
+
+
+
+[Dataset 2: Nursery store]("https://archive.ics.uci.edu/ml/datasets/Nursery")
+
+This is completely categorical dataset with dimension $12960 * 9$.I binarized this dataset and converted into  csv file.(This binarized file can be seen as binarize_car.csv in ./Data/Nursery folder).  
+After executing apriori code on this dataset using the two candidate generation methods i got following results for three different threshold values of support.
+
+
+$F_{k-1} X F_{k-1}$ 
+
+| support | candidate_itemsets | frequent_itemsets |  
+|---------|--------------------|-------------------|
+| 0.01    | 23880              | 7028              | 
+| 0.1     | 870                | 164               | 
+| 0.3     | 151                | 17                |
+
+
+$F_{k-1} X F_1$  
+
+| support | candidate_itemsets | frequent_itemsets |
+|---------|--------------------|-------------------|
+| 0.01    | 47372              | 7034              | 
+| 0.1     | 1550               | 164               | 
+| 0.3     | 159                | 17                | 
+
+
+
+
+All the corresponding frequent itemsets with the their corresponding support values can be seen in ./Code/nursery/Car/support_*.csv files.
+
+
+
+[Dataset 3:Belgian store]("http://fimi.ua.ac.be/data/retail.pdf")  
+
+This is actual transactional dataset of a belgian store and most practical dataset to 
+apply Apriori Algorithm.This datasets has more than 90K transactions and over 500+ different items.
+After executing apriori code on this dataset using the two candidate generation methods i got following results for three different threshold values of support.  
+
+$F_{k-1} X F_{k-1}$ 
+
+| support | candidate_itemsets | frequent_itemsets |
+|---------|--------------------|-------------------|
+| 0.01    | 3927               | 217               |
+| 0.1     | 178                | 5                 |
+| 0.3     | 168                | 0                 |
+
+
+$F_{k-1} X F_1$  
+
+| support | candidate_itemsets | frequent_itemsets |
+|---------|--------------------|-------------------|
+| 0.01    | 4418               | 217               |
+| 0.1     | 178                | 5                 |
+| 0.3     | 168                | 0                 |
+
+All the corresponding frequent itemsets with the their corresponding support values can be seen in ./Code/Data/Groceries/support_*.csv files.  
+
+
+###C)  
+
+**Maximal Frequent Itemset** : Frequent item set $X \epsilon F$ is maximal if it does not have any frequent supersets  
+[module:maximal_frequent_itemset.py](./Code/maximal_itemset.py)
+
+**Closed Frequent Itemset** : Frequent item set $X \epsilon F$ is closed if it has no superset with the same frequency.  
+[module:closed_frequent_itemset.py](./Code/closed_itemset.py)  
+
+
+
+[Dataset 1:Car Evaluation]("https://archive.ics.uci.edu/ml/datasets/Car+Evaluation") 
+
+$F_{k-1} X F_{k-1}$ 
+
+| support | candidate_itemsets | frequent_itemsets | maximal_frequent | closed_frequent |
+|---------|--------------------|-------------------|------------------|-----------------|
+| 0.01    | 190                | 84                | 40               | 78              |
+| 0.1     | 78                 | 18                | 9                | 18              |
+| 0.3     | 12                 | 1                 | 1                | 1               |
+
+
+$F_{k-1} X F_1$  
+
+
+| support | candidate_itemsets | frequent_itemsets | maximal_frequent | closed_frequent |
+|---------|--------------------|-------------------|------------------|-----------------|
+| 0.01    | 281                | 84                | 40               | 78              |
+| 0.1     | 64                 | 18                | 9                | 18              |
+| 0.3     | 12                 | 1                 | 1                | 1               |    
+
+
+
+
+[Dataset 2: Nursery store]("https://archive.ics.uci.edu/ml/datasets/Nursery")
+
+$F_{k-1} X F_{k-1}$ 
+
+| support | candidate_itemsets | frequent_itemsets | maximal_frequent | closed_frequent |
+|---------|--------------------|-------------------|------------------|-----------------|
+| 0.01    | 23880              | 7028              | 3294             | 2113            |
+| 0.1     | 870                | 164               | 111              | 75              |
+| 0.3     | 151                | 17                | 15               | 5               |
+
+
+
+$F_{k-1} X F_1$  
+
+| support | candidate_itemsets | frequent_itemsets | maximal_frequent | closed_frequent |
+|---------|--------------------|-------------------|------------------|-----------------|
+| 0.01    | 47372              | 7034              | 3294             | 2113            |
+| 0.1     | 1550               | 164               | 111              | 75              |
+| 0.3     | 159                | 17                | 15               | 5               |
+
+
+
+[Dataset 3:Belgian store]("http://fimi.ua.ac.be/data/retail.pdf") 
+
+$F_{k-1} X F_{k-1}$ 
+
+
+| support | candidate_itemsets | frequent_itemsets | maximal_frequent | closed_frequent |
+|---------|--------------------|-------------------|------------------|-----------------|
+| 0.01    | 3927               | 217               | 159              | 172             |
+| 0.1     | 178                | 5                 | 5                | 5               |
+| 0.3     | 168                | 0                 | 0                | 0               |
+
+
+$F_{k-1} X F_1$  
+
+
+| support | candidate_itemsets | frequent_itemsets | maximal_frequent | closed_frequent |
+|---------|--------------------|-------------------|------------------|-----------------|
+| 0.01    | 4418               | 217               | 159              | 172             |
+| 0.1     | 178                | 5                 | 5                | 5               |
+| 0.3     | 168                | 0                 | 0                | 0               |  
+
+
+#d)  
+The code for confidence based rules  can be found here  
+[module:mining.py](./Code/mining.py)   
+
+
+[Dataset 1:Car Evaluation]("https://archive.ics.uci.edu/ml/datasets/Car+Evaluation")  
+
+
+| support | confidence | rules_generated | pruned_rules |
+|---------|------------|-----------------|--------------|
+| 0.01    | 0.25       | 175             | 59           |
+| 0.01    | 0.5        | 175             | 10           |
+| 0.01    | 0.75       | 175             | 3            |
+| 0.1     | 0.25       | 16              | 11           |
+| 0.1     | 0.50       | 16              | 8            |
+| 0.1     | 0.75       | 16              | 3            |
+| 0.3     | 0.25       | 0               | 0            |
+| 0.3     | 0.50       | 0               | 0            |
+| 0.3     | 0.75       | 0               | 0            |
+
+
+
+[Dataset 2: Nursery store]("https://archive.ics.uci.edu/ml/datasets/Nursery")  
+
+
+| support | confidence | rules_generated | pruned_rules |
+|---------|------------|-----------------|--------------|
+| 0.01    | 0.25       | 47372           | 7034         |
+| 0.01    | 0.5        | 34462           | 754          |
+| 0.01    | 0.75       | 34460           | 4            |
+| 0.1     | 0.25       | 281             | 270          |
+| 0.1     | 0.50       | 281             | 65           |
+| 0.1     | 0.75       | 281             | 2            |
+| 0.3     | 0.25       | 2               | 2            |
+| 0.3     | 0.50       | 2               | 2            |
+| 0.3     | 0.75       | 2               | 2            |
+
+
+
+
+[Dataset 3:Belgian store]("http://fimi.ua.ac.be/data/retail.pdf")   
+
+
+| support | confidence | rules_generated | pruned_rules |
+|---------|------------|-----------------|--------------|
+| 0.01    | 0.25       | 296             | 75           |
+| 0.01    | 0.5        | 296             | 2            |
+| 0.01    | 0.75       | 296             | 2            |
+| 0.1     | 0.25       | 0               | 0            |
+| 0.1     | 0.50       | 0               | 0            |
+| 0.1     | 0.75       | 0               | 0            |
+| 0.3     | 0.25       | 0               | 0            |
+| 0.3     | 0.50       | 0               | 0            |
+| 0.3     | 0.75       | 0               | 0            |   
+
+
+
+
+
 
