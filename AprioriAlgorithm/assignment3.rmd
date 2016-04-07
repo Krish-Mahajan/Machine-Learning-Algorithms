@@ -247,6 +247,61 @@ The code for confidence based rules  can be found here
 
 
 
+#e) 
 
 
 
+
+#f)
+
+The code for lift based rules  can be found here  
+[module:mining_lift.py](./Code/mining_lift.py)   
+
+
+[Dataset 1:Car Evaluation]("https://archive.ics.uci.edu/ml/datasets/Car+Evaluation")  
+
+
+| support | Lift       | rules_generated | pruned_rules |
+|---------|------------|-----------------|--------------|
+| 0.01    | 0.85       | 175             | 156          |
+| 0.01    | 0.90       | 175             | 142          |
+| 0.01    | 0.95       | 175             | 135          |
+| 0.1     | 0.85       | 16              | 16           |
+| 0.1     | 0.90       | 16              | 16           |
+| 0.1     | 0.95       | 16              | 12           |
+| 0.3     | 0.85       | 0               | 0            |
+| 0.3     | 0.90       | 0               | 0            |
+| 0.3     | 0.95       | 0               | 0            |
+
+
+
+[Dataset 2: Nursery store]("https://archive.ics.uci.edu/ml/datasets/Nursery")  
+
+
+| support | confidence | rules_generated | pruned_rules |
+|---------|------------|-----------------|--------------|
+| 0.01    | 0.85       | 54589           | 54295        |
+| 0.01    | 0.90       | 54589           | 53654        |
+| 0.01    | 0.95       | 54160           | 52493        |
+| 0.1     | 0.85       |  281            | 281          |
+| 0.1     | 0.90       |  281            | 281          |    
+| 0.1     | 0.95       |  281            | 277          |
+| 0.3     | 0.85       |  2              |  2           |
+| 0.3     | 0.90       |  2              |  2           |
+| 0.3     | 0.95       |  2              |  2           |
+
+
+[Dataset 3:Belgian store]("http://fimi.ua.ac.be/data/retail.pdf")   
+
+
+| support | confidence | rules_generated | pruned_rules |
+|---------|------------|-----------------|--------------|
+| 0.01    | 0.85       | 296             |   296        |
+| 0.01    | 0.90       | 296             |   296        |
+| 0.01    | 0.95       | 296             |   296        |
+| 0.1     | 0.85       | 0               |   0          |
+| 0.1     | 0.90       | 0               |   0          |    
+| 0.1     | 0.95       | 0               |   0          |
+| 0.3     | 0.85       | 0               |   0          |
+| 0.3     | 0.90       | 0               |   0          |
+| 0.3     | 0.95       | 0               |   0          |

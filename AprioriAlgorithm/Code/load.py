@@ -31,7 +31,7 @@ def load(dataset=None,path="./Data",filename=None,sep=","):
 			if(ll[i][j]=='1'):
 				t.append(ll[0][j])
 		trans.append(t)
-	print(trans[1])	
+	#print(trans[1])	
 	with open(path + "/" + dataset + "/"+'trans.json','w') as fp:
 		json.dump(trans,fp)			
 	
@@ -39,3 +39,4 @@ def load(dataset=None,path="./Data",filename=None,sep=","):
 #load(dataset="Groceries",filename="groceries.csv")
 #load(dataset="accident",filename="accidents.csv")
 #load(dataset="nursery",filename="binarize_nursery.csv")
+#load(dataset="Car",filename="binarize_car.csv")

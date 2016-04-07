@@ -1,0 +1,65 @@
+frozenset([u'    i improper']),frozenset([u'    i inconv']),0.5
+frozenset([u'    i critical']),frozenset([u'    i inconv']),0.5
+frozenset([u'    i critical 1']),frozenset([u'    i convenient 1']),0.5
+frozenset([u'    i priority']),frozenset([u'    i inconv']),0.5
+frozenset([u'    i not recom']),frozenset([u'    i inconv']),0.5
+frozenset([u'    i usual']),frozenset([u'    i inconv']),0.5
+frozenset([u'    i usual']),frozenset([u'    i convenient 1']),0.5
+frozenset([u'    i slightly prob']),frozenset([u'    i inconv']),0.5
+frozenset([u'    i very crit']),frozenset([u'    i convenient 1']),0.5
+frozenset([u'    i pretentious']),frozenset([u'    i inconv']),0.5
+frozenset([u'    i less proper']),frozenset([u'    i convenient 1']),0.5
+frozenset([u'    i completed']),frozenset([u'    i inconv']),0.5
+frozenset([u'    i problematic']),frozenset([u'    i inconv']),0.5
+frozenset([u'    i 1']),frozenset([u'    i inconv']),0.5
+frozenset([u'    i 3']),frozenset([u'    i convenient 1']),0.5
+frozenset([u'    i improper']),frozenset([u'    i convenient 1']),0.5
+frozenset([u'    i not recom']),frozenset([u'    i convenient 1']),0.5
+frozenset([u'    i recommended']),frozenset([u'    i convenient 1']),0.5
+frozenset([u'    i not recom 1']),frozenset([u'    i inconv']),0.5
+frozenset([u'    i critical 1']),frozenset([u'    i inconv']),0.5
+frozenset([u'    i not recom 1']),frozenset([u'    i convenient 1']),0.5
+frozenset([u'    i less conv']),frozenset([u'    i inconv']),0.5
+frozenset([u'    i very crit']),frozenset([u'    i spec prior']),0.5856481481481481
+frozenset([u'    i recommended']),frozenset([u'    i inconv']),0.5
+frozenset([u'    i completed']),frozenset([u'    i convenient 1']),0.5
+frozenset([u'    i slightly prob']),frozenset([u'    i convenient 1']),0.5
+frozenset([u'    i convenient']),frozenset([u'    i inconv']),0.5
+frozenset([u'    i more']),frozenset([u'    i convenient 1']),0.5
+frozenset([u'    i problematic']),frozenset([u'    i convenient 1']),0.5
+frozenset([u'    i proper']),frozenset([u'    i inconv']),0.5
+frozenset([u'    i priority 1']),frozenset([u'    i convenient 1']),0.5260196905766525
+frozenset([u'    i pretentious']),frozenset([u'    i convenient 1']),0.5
+frozenset([u'    i critical']),frozenset([u'    i convenient 1']),0.5
+frozenset([u'    i proper']),frozenset([u'    i priority 1']),0.5185185185185185
+frozenset([u'    i incomplete']),frozenset([u'    i convenient 1']),0.5
+frozenset([u'    i priority 1']),frozenset([u'    i recommended']),0.5654008438818565
+frozenset([u'    i recommended']),frozenset([u'    i priority 1']),0.5583333333333333
+frozenset([u'    i 1']),frozenset([u'    i convenient 1']),0.5
+frozenset([u'    i less proper']),frozenset([u'    i priority 1']),0.5185185185185185
+frozenset([u'    i spec prior']),frozenset([u'    i priority']),0.6097922848664687
+frozenset([u'    i priority']),frozenset([u'    i spec prior']),0.5708333333333333
+frozenset([u'    i 3']),frozenset([u'    i inconv']),0.5
+frozenset([u'    i proper']),frozenset([u'    i convenient 1']),0.5
+frozenset([u'    i nonprob']),frozenset([u'    i inconv']),0.5
+frozenset([u'    i nonprob']),frozenset([u'    i convenient 1']),0.5
+frozenset([u'    i not recom 1']),frozenset([u'    i not recom']),1.0
+frozenset([u'    i not recom']),frozenset([u'    i not recom 1']),1.0
+frozenset([u'    i 2']),frozenset([u'    i convenient 1']),0.5
+frozenset([u'    i complete']),frozenset([u'    i inconv']),0.5
+frozenset([u'    i more']),frozenset([u'    i inconv']),0.5
+frozenset([u'    i incomplete']),frozenset([u'    i inconv']),0.5
+frozenset([u'    i complete']),frozenset([u'    i convenient 1']),0.5
+frozenset([u'    i foster']),frozenset([u'    i inconv']),0.5
+frozenset([u'    i 2']),frozenset([u'    i inconv']),0.5
+frozenset([u'    i priority']),frozenset([u'    i convenient 1']),0.5
+frozenset([u'    i foster']),frozenset([u'    i convenient 1']),0.5
+frozenset([u'    i less conv']),frozenset([u'    i convenient 1']),0.5
+frozenset([u'    i very crit']),frozenset([u'    i inconv']),0.5
+frozenset([u'    i convenient']),frozenset([u'    i convenient 1']),0.5
+frozenset([u'    i less proper']),frozenset([u'    i inconv']),0.5
+frozenset([u'    i spec prior']),frozenset([u'    i inconv']),0.5410484668644905
+frozenset([u'    i not recom']),"frozenset([u'    i inconv', u'    i not recom 1'])",0.5
+frozenset([u'    i not recom 1']),"frozenset([u'    i not recom', u'    i inconv'])",0.5
+frozenset([u'    i not recom 1']),"frozenset([u'    i not recom', u'    i convenient 1'])",0.5
+frozenset([u'    i not recom']),"frozenset([u'    i not recom 1', u'    i convenient 1'])",0.5

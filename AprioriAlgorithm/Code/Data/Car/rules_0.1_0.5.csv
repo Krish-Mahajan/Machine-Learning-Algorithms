@@ -1,8 +1,7 @@
-frozenset([u'high']),frozenset([u'unacc']),0.75
 frozenset([u'med']),frozenset([u'unacc']),0.6203703703703703
 frozenset([u'vhigh']),frozenset([u'unacc']),0.8333333333333334
 frozenset([u'3']),frozenset([u'unacc']),0.6944444444444444
 frozenset([u'5more']),frozenset([u'unacc']),0.6759259259259259
-frozenset([u'4']),frozenset([u'unacc']),0.6759259259259259
-frozenset([u'2']),frozenset([u'unacc']),0.7546296296296297
 frozenset([u'low']),frozenset([u'unacc']),0.5972222222222222
+frozenset([u'2']),frozenset([u'unacc']),0.7546296296296297
+frozenset([u'4']),frozenset([u'unacc']),0.6759259259259259
