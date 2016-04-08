@@ -14,9 +14,10 @@ Exact steps can be replicated to run the algorithm on any of the 3 dataset avail
 **2)** On the R console  run the following command ```data<-read.csv("./Data/nursery/nursery.data.txt",header=FALSE,sep=",")``` to read the raw text file  
 **3)** Now on the R console ```source("binarize.r")``` to compile binarize function  
 **4)** Now on the R console ```binarize(data=data,dataset="nursery") ``` ,This 'll create a binarize csv file **binarize_nursery.csv** in ./Data/nursery/     
-**5)** On the python console run  ``` main.main(dataset="nursery",filename="binarize_nursery.csv",min_support=0.1,min_factor=0.50)``` to run the whole apriori Algorithm.  
+**5)** On the python console run  ``` main.run(dataset="nursery",filename="binarize_nursery.csv",min_support=0.1,min_factor=0.50)``` to run the whole apriori Algorithm.  
 
 **Note** The last step 'll create csv file of set of frequent itemsets with min_support=0.1,set of rules with either (confidence =0.50/lift=0.50).  
+The file 'll be located in (./Code/Data/Dataset/) folder  
 Here the default method for frequent itemset generation is f(k-1) *f(k-1).  
 The Program 'll also output # of:    
 -Itemset generated  

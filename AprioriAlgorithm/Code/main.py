@@ -10,7 +10,7 @@ import mining
 import mining_lift
 
 
-def main_frequencyset(dataset=None,filename=None,path="./Data",sep="," ,minsupport=0.1,min_factor=0.50):
+def run(dataset=None,filename=None,path="./Data",sep="," ,minsupport=0.1,min_factor=0.50):
 	
 	#reading binarize file(changing binarize file into transaction)
 	filepath=path + "/" + dataset + "/" + filename 
@@ -23,8 +23,8 @@ def main_frequencyset(dataset=None,filename=None,path="./Data",sep="," ,minsuppo
 	
 	#running apriori with minsupport to get frequency sets
 	l,support_data,c,f=apriori.apriori(d,minsupport=0.1)
-	print("l is",l)
-	print("support is",support_data)
+	#print("l is",l)
+	#print("support is",support_data)
 
 
 	#printing frequency set with support 
@@ -45,8 +45,10 @@ def main_frequencyset(dataset=None,filename=None,path="./Data",sep="," ,minsuppo
 	#mining.generateRules(l,support_data)
 
 	#generating rules   	
+	#min_lift=min_factor
 	#rules,noofrules=mining_lift.generateRules(l,support_data,min_factor=0.85)
-	rules,noofrules=mining.generateRules(l,support_data,min_factor=0.50)
+	min_confidence=min_factor
+	rules,noofrules=mining.generateRules(l,support_data,min_confidence)
 
 
 	print("rules generated",noofrules)
@@ -60,5 +62,5 @@ def main_frequencyset(dataset=None,filename=None,path="./Data",sep="," ,minsuppo
 	
 
 
-#main_frequencyset(dataset="Car",filename="binarize_car.csv")
-#main_frequencyset(dataset="nursery",filename="binarize_nursery.csv")	
+#main(dataset="Car",filename="binarize_car.csv")
+#main(dataset="nursery",filename="binarize_nursery.csv")	
