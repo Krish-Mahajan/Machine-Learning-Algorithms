@@ -1,0 +1,10 @@
+frozenset([u'vhigh']),frozenset([u'unacc']),0.833333333
+frozenset([u'2']),frozenset([u'unacc']),0.75462963
+frozenset([u'high']),frozenset([u'unacc']),0.75
+frozenset([u'3']),frozenset([u'unacc']),0.694444444
+frozenset([u'5more']),frozenset([u'unacc']),0.675925926
+frozenset([u'4']),frozenset([u'unacc']),0.675925926
+frozenset([u'good']),frozenset([u'low']),0.666666667
+frozenset([u'med']),frozenset([u'unacc']),0.62037037
+frozenset([u'vgood']),frozenset([u'low']),0.6
+frozenset([u'low']),frozenset([u'unacc']),0.597222222

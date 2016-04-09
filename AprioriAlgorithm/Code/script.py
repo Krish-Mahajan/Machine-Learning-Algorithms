@@ -24,19 +24,20 @@ for key, value in support_data.items():
 '''
 
 
-
+'''
 rules,noofrules=mining_lift.generateRules(l,support_data,min_lift=0.85)
 
 print("rules generated",noofrules)
 print("rules pruned",len(rules))
-
 '''
-writer = csv.writer(open('./Data/Groceries/rules_0.01_0.95.csv', 'wb'))
+'''
+writer = csv.writer(open('./Data/Groceries/rules_0.01_0.9.csv', 'wb'))
 for rule in rules:
    	writer.writerow(rule)
 '''
 
-
+'''
 writer = csv.writer(open('./Data/Groceries/lift_rules_0.1_0.85.csv', 'wb'))
 for rule in rules:
-   	writer.writerow(rule)
+   	writer.writerow(rule) 
+'''   	

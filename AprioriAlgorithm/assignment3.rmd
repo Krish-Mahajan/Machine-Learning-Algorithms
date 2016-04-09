@@ -1,3 +1,6 @@
+---
+output: html_document
+---
 $$  
 \begin{aligned}  
 \textbf{Data Mining:Assignment 3}  
@@ -25,7 +28,7 @@ Please find the code for both $F_{k-1} X F_{k-1}$ and $F_{k-1} X F_1$.
 I maintained counter for count of candidate itemsets and count of frequent itemsets in actual **apriori** code which can be seen here  
 [Module:apriori.py](./Code/apriori.py)  
 
-Instructions to run the code can be seen in the attached readme.md file.  
+Instructions to run the code can be seen in the attached **readme.md** file.  
 
 ###B)  
 In this problem i took up datasets from UCI repository which were categorical,numerical or both and correspondingly binarized the  datasets removing redundant columns.I implemented binarization function in R.  
@@ -52,6 +55,9 @@ $F_{k-1} X F_1$
 | 0.01    | 281                | 84                |
 | 0.1     | 64                 | 18                |
 | 0.3     | 12                 | 1                 |
+
+
+
 
 All the corresponding frequent itemsets with the their corresponding support values can be seen in ./Code/Data/Car/support_*.csv files.  
 
@@ -87,10 +93,10 @@ All the corresponding frequent itemsets with the their corresponding support val
 
 
 
-[Dataset 3:Belgian store]("http://fimi.ua.ac.be/data/retail.pdf")  
+[Dataset 3:Groceries]("http://fimi.ua.ac.be/data/retail.pdf")  
 
 This is actual transactional dataset of a belgian store and most practical dataset to 
-apply Apriori Algorithm.This datasets has more than 90K transactions and over 500+ different items.
+apply Apriori Algorithm.This datasets has more than 9K transactions and over 500+ different items.
 After executing apriori code on this dataset using the two candidate generation methods i got following results for three different threshold values of support.  
 
 $F_{k-1} X F_{k-1}$ 
@@ -111,6 +117,9 @@ $F_{k-1} X F_1$
 | 0.3     | 168                | 0                 |
 
 All the corresponding frequent itemsets with the their corresponding support values can be seen in ./Code/Data/Groceries/support_*.csv files.  
+
+
+As can be observed in the data $F_{k-1} X F_{k-1}$  generates less candidate itemsets and thus is more efficient than $F_{k-1} X F_1$  
 
 
 ###C)  
@@ -150,7 +159,7 @@ $F_{k-1} X F_1$
 
 $F_{k-1} X F_{k-1}$ 
 
-| support | candidate_itemsets | frequent_itemsets | maximal_frequent | closed_frequent |
+| support | candidate_itemsets | frequent_itemsets | closed_frequent  | maximal_frequent|
 |---------|--------------------|-------------------|------------------|-----------------|
 | 0.01    | 23880              | 7028              | 3294             | 2113            |
 | 0.1     | 870                | 164               | 111              | 75              |
@@ -160,7 +169,7 @@ $F_{k-1} X F_{k-1}$
 
 $F_{k-1} X F_1$  
 
-| support | candidate_itemsets | frequent_itemsets | maximal_frequent | closed_frequent |
+| support | candidate_itemsets | frequent_itemsets | closed_frequent  | maximal_frequent|
 |---------|--------------------|-------------------|------------------|-----------------|
 | 0.01    | 47372              | 7034              | 3294             | 2113            |
 | 0.1     | 1550               | 164               | 111              | 75              |
@@ -168,7 +177,7 @@ $F_{k-1} X F_1$
 
 
 
-[Dataset 3:Belgian store]("http://fimi.ua.ac.be/data/retail.pdf") 
+[Dataset 3:Groceries]("http://fimi.ua.ac.be/data/retail.pdf") 
 
 $F_{k-1} X F_{k-1}$ 
 
@@ -190,6 +199,8 @@ $F_{k-1} X F_1$
 | 0.3     | 168                | 0                 | 0                | 0               |  
 
 
+The above results confirm that **Candidate items > Frequent Itemsets > closed Frequent> Maximal Frequent**   
+
 #d)  
 The code for confidence based rules  can be found here  
 [module:mining.py](./Code/mining.py)   
@@ -201,7 +212,7 @@ The code for confidence based rules  can be found here
 | support | confidence | rules_generated | pruned_rules |
 |---------|------------|-----------------|--------------|
 | 0.01    | 0.25       | 175             | 59           |
-| 0.01    | 0.5        | 175             | 10           |
+| 0.01    | 0.50       | 175             | 10           |
 | 0.01    | 0.75       | 175             | 3            |
 | 0.1     | 0.25       | 16              | 11           |
 | 0.1     | 0.50       | 16              | 8            |
@@ -230,7 +241,7 @@ The code for confidence based rules  can be found here
 
 
 
-[Dataset 3:Belgian store]("http://fimi.ua.ac.be/data/retail.pdf")   
+[Dataset 3:Groceries]("http://fimi.ua.ac.be/data/retail.pdf")   
 
 
 | support | confidence | rules_generated | pruned_rules |
@@ -247,12 +258,47 @@ The code for confidence based rules  can be found here
 
 
 
-#e) 
+#e)  
+
+To generate the top 10 rules i sorted(max to min)  rules based on confidence for each support value.  
+For a particular support value the rule with more confidence 'll be a better rule then the rule with lesser confidence.  
+
+ 
+[Dataset 1:Car Evaluation]("https://archive.ics.uci.edu/ml/datasets/Car+Evaluation")   
+Top 10 rules for this dataset for each support and each threshold in above table
+can be in found in folder **(.Data/Car/rules/confidence)** where each csv files shows the top 10 rules.  
+
+[Dataset 2: Nursery store]("https://archive.ics.uci.edu/ml/datasets/Nursery")  
+Top 10 rules for this dataset for each support and each threshold in above table
+can be in found in folder **(.Data/nursery/rules/confidence)** where each csv files shows the top 10 rules.
+
+[Dataset 3:Groceries]("http://fimi.ua.ac.be/data/retail.pdf")  
+Top 10 rules for this dataset for each support and each threshold in above table
+can be in found in folder **(.Data/Groceries/rules/confidence)** where each csv files shows the top 10 rules. 
 
 
+On my Observation for top 10 rules on Groceries dataset (Most practical dataset) i got following rules from the above support and confidence values 
 
+| rules                                            | support | confidence  |
+|--------------------------------------------------|---------|-------------|
+| 'onions' ------> 'other vegetables'              | 1%      | 0.510638298 |
+| 'beef' -------->,'whole milk'                    | 1%      | 0.504716981 |
+| 'curd'--------->,'whole milk'                    | 1%      | 0.491916859 |
+| 'butter'------->,'whole milk'                    | 1%      | 0.488272921 |
+| 'root vegetables'--------->'whole milk'          | 1%      | 0.478316327 |
+| 'beef'------->,'other vegetables'                | 1%      | 0.466981132 |
+| 'root vegetables'----------->,'other vegetables' | 1%      | 0.464285714 |
+| 'domestic eggs'------->,'whole milk'             | 1%      | 0.45979021  |
+| 'tropical fruit'--------->'whole milk'           | 1%      | 0.447272727 | 
 
-#f)
+All these rules seems to be very relevant.1% support seems low but considering this transaction are over 6 months duration 1% 'll be very significant. 
+Rules for Other support Confidence combination can be found in csv files.  
+  
+#f)  
+
+Lift is one more parameter of interest in the association analysis. Lift is nothing but the ratio of Confidence to Expected Confidence,Using the above example, expected Confidence in this case means, "confidence, if buying A and B does not enhance the probability of buying C."For the supermarket example the Lift = Confidence/Expected Confidence.Hence, Lift is a value that  gives us information about the increase in probability of the then (consequent)  given the if (antecedent) part.  
+A lift ratio larger than 1.0 implies that the relationship between the antecedent and the consequent is more significant than would be expected if the two sets were independent. The larger the lift ratio, the more significant the association  
+
 
 The code for lift based rules  can be found here  
 [module:mining_lift.py](./Code/mining_lift.py)   
@@ -305,3 +351,69 @@ The code for lift based rules  can be found here
 | 0.3     | 0.85       | 0               |   0          |
 | 0.3     | 0.90       | 0               |   0          |
 | 0.3     | 0.95       | 0               |   0          |
+
+
+To generate the top 10 rules i sorted(max to min)  rules based on Lift for each support value.  
+For a particular support value the rule with more Lift 'll be a better rule then the rule with lesser confidence.  
+
+ 
+[Dataset 1:Car Evaluation]("https://archive.ics.uci.edu/ml/datasets/Car+Evaluation") 
+Top 10 rules for this dataset for each support and each threshold in above table
+can be in found in folder **(.Data/Car/rules/lift)** where each csv files shows the top 10 rules.  
+
+[Dataset 2: Nursery store]("https://archive.ics.uci.edu/ml/datasets/Nursery")  
+Top 10 rules for this dataset for each support and each threshold in above table
+can be in found in folder **(.Data/nursery/rules/lift)** where each csv files shows the top 10 rules.
+
+[Dataset 3:Groceries]("http://fimi.ua.ac.be/data/retail.pdf")
+Top 10 rules for this dataset for each support and each threshold in above table
+can be in found in folder **(.Data/Groceries/rules/lift)** where each csv files shows the top 10 rules.   
+
+
+#Q4 
+
+### Summary Paper 1  
+
+**Impossibility Theorem**   
+
+Clustering means proximating similar objects from a many  different observations. The similarity between observations is usually measured in the form of distance/proximation between two observations . Smaller the distance, greater the similarity between objects. Though similarity is one of the measures for forming clusters. Every set of observation  has their  own definition of similarity Clustering, which is more of an domain related work  when we try to change it into an generalised algorithm. There are  many different clustering algorithms, which lead into different type of  conclusions.According to Jardine and Gibson's paper,  work in clustering analysis involves axiomatic approaches  which necessisates in hierarchical clustering.   
+Puzicha on the other hand, emphasis more on the  efficiency of  partition function for clustering.Some researchers have recently defined properties that are needed to uniquely specify any clustering formulation.    
+
+
+Distance function is used to calculate the similarity. However this metric is not imposed by using the distance metrics. A clustering function is  defined that inputs the distances and returns the K partition sets. The following properties are  observed:    
+1.  **Scale Invariance**:   
+It checks that the selected clustering function is not sensitive to the different scales of measurements. For this, $\alpha$> 0 is used such that f(d) = f($\alpha$d).  
+2.	**Richness**:  
+This property  says that each partition of the set is equally favourable to be the output. It is defined by $Range(f)$.  
+3.	**Consistency**:  
+This shows  if the inter-cluster distance is minimized and intra-cluster distance is maximized, the clustering result obtained must be very similar to the previous scale.The publishers uses the transformation function and defines two distances, **(d)** the older distance and **(d')** the new distance. This is imposed to satisfy the conditions of shrinking and expanding the distances. Function is consistent if **f(d) = f(d')** whenever d'is an consistent with d.  
+
+With  looking   on these properties, the publishers characterizes those 1st property that though n >= 2, it will be impossible for whatever grouping capacity to fulfill every last one of over three said properties. This may be demonstrated Toward taking the illustration about single-linkage grouping strategies. The fundamental idea of those methodology is formation about weighted graph  and sub graphs might be taken as likewise groups/clusters. For this suitable stoppping states are characterized. There are three sorts for stopping conditions:  
+**1. K - cluster stopping condition:** stop when there are  'k' connected parts.   
+**2. Separation - r stopping condition:** include edges with weight at most 'r'.   
+**3. Scale** - $\alpha$ **stopping condition:** it means those most extreme pairwise separation Also edges for weight at most $\alpha$*p may be included. 
+
+On basis of these stopping conditions, it is inferred that exactly two of the properties are satisfied by using any of the stopping condition.  
+a)	Single Linkage - (k-cluster) - Scale Invariance, Consistency. (k >= 1, n >= k)    
+b)	Single Linkage - (distance-r) -Consistency, Richness. (n >= 3, $\alpha$<1)  
+c)	Single Linkage - (scale-$\alpha$) - Scale Invariance, Richness. (r >0, n >= 2)  
+
+**Antichains**  
+To prove the above results a special refinement set of clusters is used. The concept says that each partition will have a refined partition. This refined partition will be the subset of the original partitions.  For example, if the resulting cluster is A and B, there will be partition of clusters A such that A $\subseteq$ A and B $\subseteq$ A. From this, the concept of Antichain is defined as the collection of partitions such that no two partitions are the refinement of each other.
+
+From this point the author starts the proofs for his statement of impossibility. First theorem says that if the function satisfies the Scale Invariance and Consistency, then Range(f) will be an antichain. This is proved by taking the help of advanced mathematics. On showing the entire calculation, author prove his point with a contradiction. Here the proof given assumes that the clustering function is defined on entire set of data points. Author asks to be careful while selecting the constant.
+The next theorem takes help of the sum-of-pairs method to show that for every antichain of partition, if the function satisfies the scale Invariance and Consistency, the Range(f) will be the antichain of partition. Here the sum-of-pairs function is used that can minimize the distances between pairs of points. The entire transformation is shown by series of calculations.
+
+The author has also given a beautiful analysis of how centroid based clustering, which is one of the most common clustering methods, is contrastingly related to the property of Consistency. It is very difficult to generate a consistent k-means or k-median clustering approach as choosing the centroids initially in fairly based on intuition. There is no specific method for generating initial set of centroids.  
+
+**Relaxing Properties**  
+At the end author introduces the concept of Refinement-Consistency. Even then he argues that even then none of the clustering function can satisfy these properties. However, there are slim chances where some functions can satisfy Scale-Invariance, Refinement-Consistency and Near-Richness properties.
+
+**Conclusions and Opinions**  
+
+**Strengths**:  
+.  The paper has very well explained the importance of scale-invariance, richness and consistency on the generalized form of clustering. The impossibility theorem, explains that two of the above properties could be easily satisfied for any given clustering algorithm. 
+.	The author has also proved the impossibility theorem by giving simple and easily understandable proof. He has also gone ahead to give examples of relaxation of every property and how other two properties are satisfied for particular clustering function.  
+**Weakness**:    
+.	Kleinberg has not mentioned why he chose only three properties - scale invariance, richness and consistency and what is the importance of other properties such as accuracy, efficiency, etc.
+

@@ -73,7 +73,7 @@ if (window.hljs && document.readyState && document.readyState === "complete") {
 <h3>A)</h3>
 <p>Please find the code for both <span class="math">\(F_{k-1} X F_{k-1}\)</span> and <span class="math">\(F_{k-1} X F_1\)</span>.<br /><a href="./Code/aprioriGen.py">Module:aprioriGn.py</a></p>
 <p>I maintained counter for count of candidate itemsets and count of frequent itemsets in actual <strong>apriori</strong> code which can be seen here<br /><a href="./Code/apriori.py">Module:apriori.py</a></p>
-<p>Instructions to run the code can be seen in the attached readme.md file.</p>
+<p>Instructions to run the code can be seen in the attached <strong>readme.md</strong> file.</p>
 </div>
 <div id="b" class="section level3">
 <h3>B)</h3>
@@ -192,8 +192,8 @@ if (window.hljs && document.readyState && document.readyState === "complete") {
 </tbody>
 </table>
 <p>All the corresponding frequent itemsets with the their corresponding support values can be seen in ./Code/nursery/Car/support_*.csv files.</p>
-<p><a href title="http://fimi.ua.ac.be/data/retail.pdf">Dataset 3:Belgian store</a></p>
-<p>This is actual transactional dataset of a belgian store and most practical dataset to apply Apriori Algorithm.This datasets has more than 90K transactions and over 500+ different items. After executing apriori code on this dataset using the two candidate generation methods i got following results for three different threshold values of support.</p>
+<p><a href title="http://fimi.ua.ac.be/data/retail.pdf">Dataset 3:Groceries</a></p>
+<p>This is actual transactional dataset of a belgian store and most practical dataset to apply Apriori Algorithm.This datasets has more than 9K transactions and over 500+ different items. After executing apriori code on this dataset using the two candidate generation methods i got following results for three different threshold values of support.</p>
 <p><span class="math">\(F_{k-1} X F_{k-1}\)</span></p>
 <table>
 <thead>
@@ -249,6 +249,7 @@ if (window.hljs && document.readyState && document.readyState === "complete") {
 </tbody>
 </table>
 <p>All the corresponding frequent itemsets with the their corresponding support values can be seen in ./Code/Data/Groceries/support_*.csv files.</p>
+<p>As can be observed in the data <span class="math">\(F_{k-1} X F_{k-1}\)</span> generates less candidate itemsets and thus is more efficient than <span class="math">\(F_{k-1} X F_1\)</span></p>
 </div>
 <div id="c" class="section level3">
 <h3>C)</h3>
@@ -333,8 +334,8 @@ if (window.hljs && document.readyState && document.readyState === "complete") {
 <th align="left">support</th>
 <th align="left">candidate_itemsets</th>
 <th align="left">frequent_itemsets</th>
-<th align="left">maximal_frequent</th>
 <th align="left">closed_frequent</th>
+<th align="left">maximal_frequent</th>
 </tr>
 </thead>
 <tbody>
@@ -368,8 +369,8 @@ if (window.hljs && document.readyState && document.readyState === "complete") {
 <th align="left">support</th>
 <th align="left">candidate_itemsets</th>
 <th align="left">frequent_itemsets</th>
-<th align="left">maximal_frequent</th>
 <th align="left">closed_frequent</th>
+<th align="left">maximal_frequent</th>
 </tr>
 </thead>
 <tbody>
@@ -396,7 +397,7 @@ if (window.hljs && document.readyState && document.readyState === "complete") {
 </tr>
 </tbody>
 </table>
-<p><a href title="http://fimi.ua.ac.be/data/retail.pdf">Dataset 3:Belgian store</a></p>
+<p><a href title="http://fimi.ua.ac.be/data/retail.pdf">Dataset 3:Groceries</a></p>
 <p><span class="math">\(F_{k-1} X F_{k-1}\)</span></p>
 <table>
 <thead>
@@ -467,6 +468,7 @@ if (window.hljs && document.readyState && document.readyState === "complete") {
 </tr>
 </tbody>
 </table>
+<p>The above results confirm that <strong>Candidate items &gt; Frequent Itemsets &gt; closed Frequent&gt; Maximal Frequent</strong></p>
 </div>
 </div>
 <div id="d" class="section level1">
@@ -491,7 +493,7 @@ if (window.hljs && document.readyState && document.readyState === "complete") {
 </tr>
 <tr class="even">
 <td align="left">0.01</td>
-<td align="left">0.5</td>
+<td align="left">0.50</td>
 <td align="left">175</td>
 <td align="left">10</td>
 </tr>
@@ -606,7 +608,7 @@ if (window.hljs && document.readyState && document.readyState === "complete") {
 </tr>
 </tbody>
 </table>
-<p><a href title="http://fimi.ua.ac.be/data/retail.pdf">Dataset 3:Belgian store</a></p>
+<p><a href title="http://fimi.ua.ac.be/data/retail.pdf">Dataset 3:Groceries</a></p>
 <table>
 <thead>
 <tr class="header">
@@ -676,9 +678,72 @@ if (window.hljs && document.readyState && document.readyState === "complete") {
 </div>
 <div id="e" class="section level1">
 <h1>e)</h1>
+<p>To generate the top 10 rules i sorted(max to min) rules based on confidence for each support value.<br />For a particular support value the rule with more confidence ’ll be a better rule then the rule with lesser confidence.</p>
+<p><a href title="https://archive.ics.uci.edu/ml/datasets/Car+Evaluation">Dataset 1:Car Evaluation</a><br />Top 10 rules for this dataset for each support and each threshold in above table can be in found in folder <strong>(.Data/Car/rules/confidence)</strong> where each csv files shows the top 10 rules.</p>
+<p><a href title="https://archive.ics.uci.edu/ml/datasets/Nursery">Dataset 2: Nursery store</a><br />Top 10 rules for this dataset for each support and each threshold in above table can be in found in folder <strong>(.Data/nursery/rules/confidence)</strong> where each csv files shows the top 10 rules.</p>
+<p><a href title="http://fimi.ua.ac.be/data/retail.pdf">Dataset 3:Groceries</a><br />Top 10 rules for this dataset for each support and each threshold in above table can be in found in folder <strong>(.Data/Groceries/rules/confidence)</strong> where each csv files shows the top 10 rules.</p>
+<p>On my Observation for top 10 rules on Groceries dataset (Most practical dataset) i got following rules from the above support and confidence values</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">rules</th>
+<th align="left">support</th>
+<th align="left">confidence</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">‘onions’ ——&gt; ‘other vegetables’</td>
+<td align="left">1%</td>
+<td align="left">0.510638298</td>
+</tr>
+<tr class="even">
+<td align="left">‘beef’ ——–&gt;,‘whole milk’</td>
+<td align="left">1%</td>
+<td align="left">0.504716981</td>
+</tr>
+<tr class="odd">
+<td align="left">‘curd’———&gt;,‘whole milk’</td>
+<td align="left">1%</td>
+<td align="left">0.491916859</td>
+</tr>
+<tr class="even">
+<td align="left">‘butter’——-&gt;,‘whole milk’</td>
+<td align="left">1%</td>
+<td align="left">0.488272921</td>
+</tr>
+<tr class="odd">
+<td align="left">‘root vegetables’———&gt;‘whole milk’</td>
+<td align="left">1%</td>
+<td align="left">0.478316327</td>
+</tr>
+<tr class="even">
+<td align="left">‘beef’——-&gt;,‘other vegetables’</td>
+<td align="left">1%</td>
+<td align="left">0.466981132</td>
+</tr>
+<tr class="odd">
+<td align="left">‘root vegetables’———–&gt;,‘other vegetables’</td>
+<td align="left">1%</td>
+<td align="left">0.464285714</td>
+</tr>
+<tr class="even">
+<td align="left">‘domestic eggs’——-&gt;,‘whole milk’</td>
+<td align="left">1%</td>
+<td align="left">0.45979021</td>
+</tr>
+<tr class="odd">
+<td align="left">‘tropical fruit’———&gt;‘whole milk’</td>
+<td align="left">1%</td>
+<td align="left">0.447272727</td>
+</tr>
+</tbody>
+</table>
+<p>All these rules seems to be very relevant.1% support seems low but considering this transaction are over 6 months duration 1% ’ll be very significant. Rules for Other support Confidence combination can be found in csv files.</p>
 </div>
 <div id="f" class="section level1">
 <h1>f)</h1>
+<p>Lift is one more parameter of interest in the association analysis. Lift is nothing but the ratio of Confidence to Expected Confidence,Using the above example, expected Confidence in this case means, “confidence, if buying A and B does not enhance the probability of buying C.”For the supermarket example the Lift = Confidence/Expected Confidence.Hence, Lift is a value that gives us information about the increase in probability of the then (consequent) given the if (antecedent) part.<br />A lift ratio larger than 1.0 implies that the relationship between the antecedent and the consequent is more significant than would be expected if the two sets were independent. The larger the lift ratio, the more significant the association</p>
 <p>The code for lift based rules can be found here<br /><a href="./Code/mining_lift.py">module:mining_lift.py</a></p>
 <p><a href title="https://archive.ics.uci.edu/ml/datasets/Car+Evaluation">Dataset 1:Car Evaluation</a></p>
 <table>
@@ -881,6 +946,27 @@ if (window.hljs && document.readyState && document.readyState === "complete") {
 </tr>
 </tbody>
 </table>
+<p>To generate the top 10 rules i sorted(max to min) rules based on Lift for each support value.<br />For a particular support value the rule with more Lift ’ll be a better rule then the rule with lesser confidence.</p>
+<p><a href title="https://archive.ics.uci.edu/ml/datasets/Car+Evaluation">Dataset 1:Car Evaluation</a> Top 10 rules for this dataset for each support and each threshold in above table can be in found in folder <strong>(.Data/Car/rules/lift)</strong> where each csv files shows the top 10 rules.</p>
+<p><a href title="https://archive.ics.uci.edu/ml/datasets/Nursery">Dataset 2: Nursery store</a><br />Top 10 rules for this dataset for each support and each threshold in above table can be in found in folder <strong>(.Data/nursery/rules/lift)</strong> where each csv files shows the top 10 rules.</p>
+<p><a href title="http://fimi.ua.ac.be/data/retail.pdf">Dataset 3:Groceries</a> Top 10 rules for this dataset for each support and each threshold in above table can be in found in folder <strong>(.Data/Groceries/rules/lift)</strong> where each csv files shows the top 10 rules.</p>
+</div>
+<div id="q4" class="section level1">
+<h1>Q4</h1>
+<div id="summary-paper-1" class="section level3">
+<h3>Summary Paper 1</h3>
+<p><strong>Impossibility Theorem</strong></p>
+<p>Clustering means proximating similar objects from a many different observations. The similarity between observations is usually measured in the form of distance/proximation between two observations . Smaller the distance, greater the similarity between objects. Though similarity is one of the measures for forming clusters. Every set of observation has their own definition of similarity Clustering, which is more of an domain related work when we try to change it into an generalised algorithm. There are many different clustering algorithms, which lead into different type of conclusions.According to Jardine and Gibson’s paper, work in clustering analysis involves axiomatic approaches which necessisates in hierarchical clustering.<br />Puzicha on the other hand, emphasis more on the efficiency of partition function for clustering.Some researchers have recently defined properties that are needed to uniquely specify any clustering formulation.</p>
+<p>Distance function is used to calculate the similarity. However this metric is not imposed by using the distance metrics. A clustering function is defined that inputs the distances and returns the K partition sets. The following properties are observed:<br />1. <strong>Scale Invariance</strong>:<br />It checks that the selected clustering function is not sensitive to the different scales of measurements. For this, <span class="math">\(\alpha\)</span>&gt; 0 is used such that f(d) = f(<span class="math">\(\alpha\)</span>d).<br />2. <strong>Richness</strong>:<br />This property says that each partition of the set is equally favourable to be the output. It is defined by <span class="math">\(Range(f)\)</span>.<br />3. <strong>Consistency</strong>:<br />This shows if the inter-cluster distance is minimized and intra-cluster distance is maximized, the clustering result obtained must be very similar to the previous scale.The publishers uses the transformation function and defines two distances, <strong>(d)</strong> the older distance and <strong>(d’)</strong> the new distance. This is imposed to satisfy the conditions of shrinking and expanding the distances. Function is consistent if <strong>f(d) = f(d’)</strong> whenever d’is an consistent with d.</p>
+<p>With looking on these properties, the publishers characterizes those 1st property that though n &gt;= 2, it will be impossible for whatever grouping capacity to fulfill every last one of over three said properties. This may be demonstrated Toward taking the illustration about single-linkage grouping strategies. The fundamental idea of those methodology is formation about weighted graph and sub graphs might be taken as likewise groups/clusters. For this suitable stoppping states are characterized. There are three sorts for stopping conditions:<br /><strong>1. K - cluster stopping condition:</strong> stop when there are ‘k’ connected parts.<br /><strong>2. Separation - r stopping condition:</strong> include edges with weight at most ‘r’.<br /><strong>3. Scale</strong> - <span class="math">\(\alpha\)</span> <strong>stopping condition:</strong> it means those most extreme pairwise separation Also edges for weight at most <span class="math">\(\alpha\)</span>*p may be included.</p>
+<p>On basis of these stopping conditions, it is inferred that exactly two of the properties are satisfied by using any of the stopping condition.<br />a) Single Linkage - (k-cluster) - Scale Invariance, Consistency. (k &gt;= 1, n &gt;= k)<br />b) Single Linkage - (distance-r) -Consistency, Richness. (n &gt;= 3, <span class="math">\(\alpha\)</span>&lt;1)<br />c) Single Linkage - (scale-<span class="math">\(\alpha\)</span>) - Scale Invariance, Richness. (r &gt;0, n &gt;= 2)</p>
+<p><strong>Antichains</strong><br />To prove the above results a special refinement set of clusters is used. The concept says that each partition will have a refined partition. This refined partition will be the subset of the original partitions. For example, if the resulting cluster is A and B, there will be partition of clusters A such that A <span class="math">\(\subseteq\)</span> A and B <span class="math">\(\subseteq\)</span> A. From this, the concept of Antichain is defined as the collection of partitions such that no two partitions are the refinement of each other.</p>
+<p>From this point the author starts the proofs for his statement of impossibility. First theorem says that if the function satisfies the Scale Invariance and Consistency, then Range(f) will be an antichain. This is proved by taking the help of advanced mathematics. On showing the entire calculation, author prove his point with a contradiction. Here the proof given assumes that the clustering function is defined on entire set of data points. Author asks to be careful while selecting the constant. The next theorem takes help of the sum-of-pairs method to show that for every antichain of partition, if the function satisfies the scale Invariance and Consistency, the Range(f) will be the antichain of partition. Here the sum-of-pairs function is used that can minimize the distances between pairs of points. The entire transformation is shown by series of calculations.</p>
+<p>The author has also given a beautiful analysis of how centroid based clustering, which is one of the most common clustering methods, is contrastingly related to the property of Consistency. It is very difficult to generate a consistent k-means or k-median clustering approach as choosing the centroids initially in fairly based on intuition. There is no specific method for generating initial set of centroids.</p>
+<p><strong>Relaxing Properties</strong><br />At the end author introduces the concept of Refinement-Consistency. Even then he argues that even then none of the clustering function can satisfy these properties. However, there are slim chances where some functions can satisfy Scale-Invariance, Refinement-Consistency and Near-Richness properties.</p>
+<p><strong>Conclusions and Opinions</strong></p>
+<p><strong>Strengths</strong>:<br />. The paper has very well explained the importance of scale-invariance, richness and consistency on the generalized form of clustering. The impossibility theorem, explains that two of the above properties could be easily satisfied for any given clustering algorithm. . The author has also proved the impossibility theorem by giving simple and easily understandable proof. He has also gone ahead to give examples of relaxation of every property and how other two properties are satisfied for particular clustering function.<br /><strong>Weakness</strong>:<br />. Kleinberg has not mentioned why he chose only three properties - scale invariance, richness and consistency and what is the importance of other properties such as accuracy, efficiency, etc.</p>
+</div>
 </div>
 
 

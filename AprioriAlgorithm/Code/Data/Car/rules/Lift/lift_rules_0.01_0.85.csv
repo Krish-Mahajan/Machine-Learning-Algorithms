@@ -1,0 +1,121 @@
+frozenset([u'5more']),frozenset([u'acc']),1.0625
+frozenset([u'acc']),frozenset([u'5more']),1.0625
+frozenset([u'4']),frozenset([u'good']),1.0434782608695652
+frozenset([u'good']),frozenset([u'4']),1.0434782608695652
+frozenset([u'5more']),frozenset([u'good']),1.0434782608695652
+frozenset([u'good']),frozenset([u'5more']),1.0434782608695652
+frozenset([u'low']),frozenset([u'good']),2.666666666666667
+frozenset([u'good']),frozenset([u'low']),2.666666666666667
+frozenset([u'vgood']),frozenset([u'5more']),1.2307692307692306
+frozenset([u'5more']),frozenset([u'vgood']),1.2307692307692306
+frozenset([u'3']),frozenset([u'acc']),1.03125
+frozenset([u'acc']),frozenset([u'3']),1.03125
+frozenset([u'5more']),frozenset([u'med']),1.0
+frozenset([u'med']),frozenset([u'5more']),1.0
+frozenset([u'med']),frozenset([u'acc']),1.1979166666666667
+frozenset([u'acc']),frozenset([u'med']),1.1979166666666667
+frozenset([u'5more']),frozenset([u'vhigh']),1.0
+frozenset([u'vhigh']),frozenset([u'5more']),1.0
+frozenset([u'4']),frozenset([u'acc']),1.0625
+frozenset([u'acc']),frozenset([u'4']),1.0625
+frozenset([u'4']),frozenset([u'med']),1.0
+frozenset([u'med']),frozenset([u'4']),1.0
+frozenset([u'low']),frozenset([u'5more']),1.0
+frozenset([u'5more']),frozenset([u'low']),1.0
+frozenset([u'good']),frozenset([u'med']),1.3333333333333335
+frozenset([u'med']),frozenset([u'good']),1.3333333333333335
+frozenset([u'unacc']),frozenset([u'med']),0.8859504132231404
+frozenset([u'med']),frozenset([u'unacc']),0.8859504132231404
+frozenset([u'low']),frozenset([u'3']),1.0
+frozenset([u'3']),frozenset([u'low']),1.0
+frozenset([u'vgood']),frozenset([u'med']),1.5999999999999999
+frozenset([u'med']),frozenset([u'vgood']),1.5999999999999999
+frozenset([u'vhigh']),frozenset([u'unacc']),1.1900826446280992
+frozenset([u'unacc']),frozenset([u'vhigh']),1.1900826446280992
+frozenset([u'low']),frozenset([u'vgood']),2.4
+frozenset([u'vgood']),frozenset([u'low']),2.4
+frozenset([u'3']),frozenset([u'unacc']),0.9917355371900826
+frozenset([u'unacc']),frozenset([u'3']),0.9917355371900826
+frozenset([u'5more']),frozenset([u'unacc']),0.965289256198347
+frozenset([u'unacc']),frozenset([u'5more']),0.965289256198347
+frozenset([u'low']),frozenset([u'4']),1.0
+frozenset([u'4']),frozenset([u'low']),1.0
+frozenset([u'4']),frozenset([u'unacc']),0.965289256198347
+frozenset([u'unacc']),frozenset([u'4']),0.965289256198347
+frozenset([u'2']),frozenset([u'unacc']),1.077685950413223
+frozenset([u'unacc']),frozenset([u'2']),1.077685950413223
+frozenset([u'low']),frozenset([u'unacc']),0.8528925619834711
+frozenset([u'unacc']),frozenset([u'low']),0.8528925619834711
+frozenset([u'low']),frozenset([u'2']),1.0
+frozenset([u'2']),frozenset([u'low']),1.0
+frozenset([u'2']),frozenset([u'med']),1.0
+frozenset([u'med']),frozenset([u'2']),1.0
+frozenset([u'2']),frozenset([u'vhigh']),1.0
+frozenset([u'vhigh']),frozenset([u'2']),1.0
+frozenset([u'4']),frozenset([u'vhigh']),1.0
+frozenset([u'vhigh']),frozenset([u'4']),1.0
+frozenset([u'low']),frozenset([u'acc']),0.9270833333333334
+frozenset([u'acc']),frozenset([u'low']),0.9270833333333334
+frozenset([u'vhigh']),frozenset([u'3']),1.0
+frozenset([u'3']),frozenset([u'vhigh']),1.0
+frozenset([u'3']),frozenset([u'med']),1.0
+frozenset([u'med']),frozenset([u'3']),1.0
+frozenset([u'4']),frozenset([u'vgood']),1.2307692307692306
+frozenset([u'vgood']),frozenset([u'4']),1.2307692307692306
+frozenset([u'good']),frozenset([u'3']),1.0434782608695652
+frozenset([u'3']),frozenset([u'good']),1.0434782608695652
+frozenset([u'low']),"frozenset([u'acc', u'5more'])",0.8627450980392156
+frozenset([u'5more']),"frozenset([u'acc', u'low'])",0.9887640449438202
+frozenset([u'acc']),"frozenset([u'5more', u'low'])",0.9166666666666666
+frozenset([u'5more']),"frozenset([u'unacc', u'low'])",0.9612403100775194
+frozenset([u'vhigh']),"frozenset([u'unacc', u'3'])",1.2000000000000002
+frozenset([u'3']),"frozenset([u'unacc', u'vhigh'])",1.0
+frozenset([u'unacc']),"frozenset([u'3', u'vhigh'])",1.1900826446280992
+frozenset([u'4']),"frozenset([u'acc', u'vhigh'])",1.1111111111111112
+frozenset([u'3']),"frozenset([u'unacc', u'low'])",0.9767441860465117
+frozenset([u'unacc']),"frozenset([u'med', u'2'])",0.9785123966942149
+frozenset([u'2']),"frozenset([u'med', u'unacc'])",1.1044776119402986
+frozenset([u'med']),"frozenset([u'unacc', u'2'])",0.9079754601226995
+frozenset([u'low']),"frozenset([u'unacc', u'2'])",0.8711656441717791
+frozenset([u'2']),"frozenset([u'unacc', u'low'])",1.1007751937984498
+frozenset([u'unacc']),"frozenset([u'2', u'low'])",0.9388429752066115
+frozenset([u'5more']),"frozenset([u'med', u'unacc'])",0.9552238805970149
+frozenset([u'med']),"frozenset([u'unacc', u'5more'])",0.8767123287671232
+frozenset([u'2']),"frozenset([u'acc', u'med'])",0.8695652173913043
+frozenset([u'med']),"frozenset([u'acc', u'2'])",1.2345679012345678
+frozenset([u'acc']),"frozenset([u'med', u'2'])",1.0416666666666667
+frozenset([u'4']),"frozenset([u'acc', u'med'])",1.0434782608695652
+frozenset([u'med']),"frozenset([u'acc', u'4'])",1.1764705882352942
+frozenset([u'acc']),"frozenset([u'med', u'4'])",1.2500000000000002
+frozenset([u'4']),"frozenset([u'unacc', u'low'])",0.9612403100775194
+frozenset([u'5more']),"frozenset([u'acc', u'med'])",1.0434782608695652
+frozenset([u'med']),"frozenset([u'acc', u'5more'])",1.1764705882352942
+frozenset([u'acc']),"frozenset([u'med', u'5more'])",1.2500000000000002
+frozenset([u'3']),"frozenset([u'acc', u'vhigh'])",1.0
+frozenset([u'low']),"frozenset([u'acc', u'2'])",1.037037037037037
+frozenset([u'2']),"frozenset([u'acc', u'low'])",0.9438202247191011
+frozenset([u'acc']),"frozenset([u'2', u'low'])",0.8750000000000001
+frozenset([u'5more']),"frozenset([u'acc', u'vhigh'])",1.1111111111111112
+frozenset([u'3']),"frozenset([u'acc', u'med'])",1.0434782608695652
+frozenset([u'med']),"frozenset([u'acc', u'3'])",1.2121212121212122
+frozenset([u'acc']),"frozenset([u'med', u'3'])",1.2500000000000002
+frozenset([u'unacc']),"frozenset([u'med', u'3'])",0.8727272727272728
+frozenset([u'3']),"frozenset([u'med', u'unacc'])",0.9850746268656717
+frozenset([u'med']),"frozenset([u'unacc', u'3'])",0.8800000000000001
+frozenset([u'low']),"frozenset([u'acc', u'4'])",0.8627450980392156
+frozenset([u'4']),"frozenset([u'acc', u'low'])",0.9887640449438202
+frozenset([u'acc']),"frozenset([u'4', u'low'])",0.9166666666666666
+frozenset([u'vhigh']),"frozenset([u'unacc', u'2'])",1.1533742331288344
+frozenset([u'2']),"frozenset([u'unacc', u'vhigh'])",1.0444444444444443
+frozenset([u'unacc']),"frozenset([u'vhigh', u'2'])",1.2429752066115702
+frozenset([u'4']),"frozenset([u'unacc', u'vhigh'])",0.9777777777777776
+frozenset([u'vhigh']),"frozenset([u'unacc', u'4'])",1.2054794520547945
+frozenset([u'unacc']),"frozenset([u'vhigh', u'4'])",1.1636363636363636
+frozenset([u'4']),"frozenset([u'med', u'unacc'])",0.9552238805970149
+frozenset([u'med']),"frozenset([u'unacc', u'4'])",0.8767123287671232
+frozenset([u'low']),"frozenset([u'acc', u'3'])",0.9696969696969697
+frozenset([u'3']),"frozenset([u'acc', u'low'])",1.0786516853932584
+frozenset([u'acc']),"frozenset([u'3', u'low'])",1.0
+frozenset([u'vhigh']),"frozenset([u'unacc', u'5more'])",1.2054794520547945
+frozenset([u'5more']),"frozenset([u'unacc', u'vhigh'])",0.9777777777777776
+frozenset([u'unacc']),"frozenset([u'vhigh', u'5more'])",1.1636363636363636

@@ -10,7 +10,7 @@ import mining
 import mining_lift
 
 
-def run(dataset=None,filename=None,path="./Data",sep="," ,minsupport=0.1,min_factor=0.50):
+def run(dataset=None,filename=None,path="./Data",sep="," ,minsupport=0.1,min_factor=0.5):
 	
 	#reading binarize file(changing binarize file into transaction)
 	filepath=path + "/" + dataset + "/" + filename 
@@ -28,11 +28,12 @@ def run(dataset=None,filename=None,path="./Data",sep="," ,minsupport=0.1,min_fac
 
 
 	#printing frequency set with support 
+	'''
 	filepath=path + "/" + dataset + "/support_" + str(minsupport) + ".csv"
 	writer = csv.writer(open(filepath, 'wb'))
 	for key, value in support_data.items():
 	   	writer.writerow([list(key)[:], value])
-	
+	'''
     
 	#generating maximal and closed itemset
 	print("# of candidate itemset is",c)	
@@ -47,6 +48,7 @@ def run(dataset=None,filename=None,path="./Data",sep="," ,minsupport=0.1,min_fac
 	#generating rules   	
 	#min_lift=min_factor
 	#rules,noofrules=mining_lift.generateRules(l,support_data,min_factor=0.85)
+	'''
 	min_confidence=min_factor
 	rules,noofrules=mining.generateRules(l,support_data,min_confidence)
 
@@ -55,12 +57,12 @@ def run(dataset=None,filename=None,path="./Data",sep="," ,minsupport=0.1,min_fac
 	print("rules pruned",len(rules))
 
 	#writing rules with confindence measure
-	filepath=path + "/" + dataset + "/rules_" + str(minsupport) + "_" + str(min_confidence) + ".csv"
+	filepath=path + "/" + dataset + "/confidence_rules_" + str(minsupport) + "_" + str(min_confidence) + ".csv"
 	writer = csv.writer(open(filepath, 'wb'))
 	for rule in rules:
 	   	writer.writerow(rule)
 	
+	 '''  	
 
-
-#main(dataset="Car",filename="binarize_car.csv")
-#main(dataset="nursery",filename="binarize_nursery.csv")	
+#run(dataset="Car",filename="binarize_car.csv")
+run(dataset="nursery",filename="binarize_nursery.csv")	

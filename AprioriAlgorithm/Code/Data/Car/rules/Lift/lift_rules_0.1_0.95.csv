@@ -1,0 +1,10 @@
+frozenset([u'vhigh']),frozenset([u'unacc']),1.1900826446280992
+frozenset([u'unacc']),frozenset([u'vhigh']),1.1900826446280992
+frozenset([u'3']),frozenset([u'unacc']),0.9917355371900826
+frozenset([u'unacc']),frozenset([u'3']),0.9917355371900826
+frozenset([u'5more']),frozenset([u'unacc']),0.965289256198347
+frozenset([u'unacc']),frozenset([u'5more']),0.965289256198347
+frozenset([u'2']),frozenset([u'unacc']),1.077685950413223
+frozenset([u'unacc']),frozenset([u'2']),1.077685950413223
+frozenset([u'4']),frozenset([u'unacc']),0.965289256198347
+frozenset([u'unacc']),frozenset([u'4']),0.965289256198347

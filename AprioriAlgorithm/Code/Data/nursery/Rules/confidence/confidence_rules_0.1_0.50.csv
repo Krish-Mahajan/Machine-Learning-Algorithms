@@ -1,0 +1,10 @@
+frozenset([u'    i not recom 1']),frozenset([u'    i not recom']),1
+frozenset([u'    i not recom']),frozenset([u'    i not recom 1']),1
+frozenset([u'    i spec prior']),frozenset([u'    i priority']),0.609792285
+frozenset([u'    i very crit']),frozenset([u'    i spec prior']),0.585648148
+frozenset([u'    i priority']),frozenset([u'    i spec prior']),0.570833333
+frozenset([u'    i priority 1']),frozenset([u'    i recommended']),0.565400844
+frozenset([u'    i recommended']),frozenset([u'    i priority 1']),0.558333333
+frozenset([u'    i spec prior']),frozenset([u'    i inconv']),0.541048467
+frozenset([u'    i priority 1']),frozenset([u'    i convenient 1']),0.526019691
+frozenset([u'    i proper']),frozenset([u'    i priority 1']),0.518518519

@@ -9,6 +9,7 @@ I have also implemented support & confidence pruning Algorithm to keep a check o
 (Please note all the Datasets  are availaible in Data Folder.
 These are the steps to run the Algorithm on nursery dataset.
 Exact steps can be replicated to run the algorithm on any of the 3 dataset availaible in data folder)  
+The above code is written in python 2.x
 
 **1)** Change the Home Directory to "./code"" folder  
 **2)** On the R console  run the following command ```data<-read.csv("./Data/nursery/nursery.data.txt",header=FALSE,sep=",")``` to read the raw text file  

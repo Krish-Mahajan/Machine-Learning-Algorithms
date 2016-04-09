@@ -1,0 +1,4 @@
+frozenset([u'    i not recom 1']),frozenset([u'    i not recom']),1
+frozenset([u'    i not recom']),frozenset([u'    i not recom 1']),1
+frozenset([u'    i very recom']),frozenset([u'    i recommended']),1
+"frozenset([u'    i convenient', u'    i very recom'])","frozenset([u'    i recommended', u'    i convenient 1'])",0.759615385
