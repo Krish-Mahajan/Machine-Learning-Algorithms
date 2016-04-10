@@ -1,6 +1,0 @@
-
--Small number of threshold to calculate Area roc.
-(min and maximum tight no. of threshold)
-min=max should be same for getting same roc
-
-Solutions in terms of n+,n- 

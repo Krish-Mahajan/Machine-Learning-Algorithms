@@ -1,5 +1,6 @@
+
 ---
-output: html_document
+output: pdf_document
 ---
 $$  
 \begin{aligned}  
@@ -17,7 +18,163 @@ $$
 \begin{aligned} 
 \textbf{Krishna Mahajan,0003572903}   
 \end{aligned}
-$$
+$$   
+
+
+#Q1  
+
+A receiver operating characteristics (ROC) graph is a
+technique for visualizing, organizing and selecting classifi-
+ers based on their performance  
+
+Given:  
+1. Dataset: $(x_i,y_i)_{i=1}^{i=n}$  where $y_i \epsilon {(-1,+1)}$   
+
+2. Predictions: ${(p_i)}_{i=1}^{i=n}$ set of predictions (either probability or discrete) for each  $y_i$  
+
+3. $n_{+}$ and $n_{-}$ original positive and negative examples in the dataset.  
+
+We are asked to find the minimum and maximum number of thresholds for which the true positive and false positive rates have to be computed in order to calculate
+the area under the ROC curve.  
+
+**Theory** 
+For this Question i went through numerous research paper namely [1](http://citeseerx.ist.psu.edu/viewdoc/download?rep=rep1&type=pdf&doi=10.1.1.126.7382),[2](http://cse.unl.edu/~sscott/research/papers/icdm06.pdf) and could find a efficient algorithm for generation of ROC points.  
+
+
+
+![Example](./images/i1.png)  
+
+Given a classifier and an instance, there are four possible
+outcomes. If the instance is positive and it is classified as
+positive, it is counted as a true positive; if it is classified
+as negative, it is counted as a false negative. If the instance
+is negative and it is classified as negative, it is counted as a
+true negative.if it is classified as positive, it is counted as a
+false positive. Given a classifier and a set of instances (the
+test set), a two-by-two confusion matrix. The numbers
+along the major diagonal represent the correct decisions
+made, and the numbers of this diagonal represent
+the errors-the confusion-between the various classes.  
+
+The **true positive rate**  (also called hit rate and recall) of a
+classifier is estimated as  
+**tp rate = Positives correctly classified/Total positives**
+
+The **false positive rate** (also called false alarm rate) of the
+classifier is  
+**fp rate =  Negatives incorrectly classified/Total negatives**   
+
+ROC graphs are two-dimensional graphs in which tp
+rate is plotted on the $Y$ axis and fp rate is plotted on the
+$X$ axis  
+An ROC graph depicts relative tradeoffs between
+benefits (true positives) and costs (false positives)  
+
+For example in Below Figure  
+![Example](./images/i2.png)   
+
+Several points in ROC space are important to note. The
+lower left point (0, 0) represents the strategy of never issuing
+a positive classification; such a classifier commits no
+false positive errors but also gains no true positives. The
+opposite strategy, of unconditionally issuing positive classi-
+fications, is represented by the upper right point (1, 1).
+The point (0, 1) represents perfect classification. D's performance
+is perfect as shown.  
+
+The diagonal line y = x represents the strategy of randomly
+guessing a class. For example, if a classifier randomly
+guesses the positive class half the time, it can be
+expected to get half the positives and half the negatives
+correct; this yields the point (0.5, 0.5) in ROC space.   
+
+**Thus a minimum of 2  (Tp rate,FP rate /Threshold) measurements are needed if we assume (0,0) & (1,1) points are not in the ROC curve**   
+
+** If we consider (0,0) & (1,1) points are present in ROC then only 1 threshold is needed to calculate AUC under ROC**   
+
+
+
+For maximum no. of thresholds 
+Conceptually, we may imagine
+varying a threshold from -$\infty$  to $\infty$ and tracing a curve
+through ROC space. Computationally, this is a poor way
+of generating an ROC curve.  
+
+
+Below shows an example of an ROC ''curve'' on a test
+set of 20 instances. The instances, 10 positive and 10 negative,
+are shown in the table beside the graph. Any ROC
+curve generated from a finite set of instances is actually a
+step function, which approaches a true curve as the number
+of instances approaches infinity   
+
+![Example](./images/i3.png)    
+
+
+**
+Now for maximum no. of thresholds points we can exploit the monotonicity
+of thresholded classifications any instance that is classified positive with respect to a given threshold will be classified positive for all lower thresholds as well.Therefore can simply sort the test instances decreasing by f scores and move down the list, processing one instance at a time and updating TP and FP as we go. In this way an ROC graph can be created from a linear scan. 
+**  
+The algorithm is shown in below Figure. TP and FP
+both start at zero. For each positive instance we increment
+TP and for every negative instance we increment FP. We
+maintain a stack R of ROC points, pushing a new point
+onto R after each instance is processed. The final output
+is the stack R, which will contain points on the ROC
+curve.   
+
+![Example](./images/i4.png) 
+
+
+Let n be the number of points in the test set. This algorithm
+requires an **O(nlogn)** sort followed by an **O(n)** scan
+down the list, resulting in **O(nlogn)**  total complexity.  
+
+**Thus from the above Algorithm, the maximum no. of thresholds ever needed for calculation of ROC points woulbe N i,e the  no of datapoints**  
+
+In simple terms we'll create Thresholds only for data points for different posterior probability $P(+/A)$ and max number of different posterior probability we can get is no of datapoints i,e. $N$   
+
+For further detailed answer it'll be unique no' of  posterior probability ${(p_i)}_{i=1}^{i=n}$  which can be $N$  
+
+#Q2  
+
+**Given**=$d((x_i,y_i))_{i=1}^{i=n}$, $\binom{n}{2}$ pair of distances , m clusters of these points.
+
+**To Find** : Algorithm to find which two clusters to merge out of $\binom{m}{2}$ pairs of possible clusters to minimize SSE  of new merged cluster.  
+
+First , As we know the SSE of a cluster ($c_i$) is defined as Average squared distance
+of all the points from the centroid of the cluster. i,e   
+$SSE_{c_i}$=$\sum_{x \epsilon C_i}dist(c_i,x)^2$    
+
+In the book it is proved that SSE of a cluster is equal to average pairwise distance of all the points in  the cluster as follows  
+
+$SSE_{c_i}$=$\sum_{x \epsilon C_i}dist(c_i,x)^2 =\frac{1}{2|c_i|}\sum_{x \epsilon C_i}{\sum_{y \epsilon C_i}}dist(x,y)^2$  
+
+###Proof  
+
+![image](./images/q21.png)   
+
+In this equation we know everything,as the pairwise distances and all the m clusters are given.So we can calculate SSE of any cluster.  
+
+Now, we need to  best two clusters $C_x$ and $C_y$ to merge out of set  of $\binom{n}{2}$ clusters 'which  should have the minimum $SSE_{C_xC_y}$ after merging to form the new cluster  
+i,e  
+
+$SSE_{C_xC_y}$=$\frac{1}{2|C_x|}\sum_{x \epsilon C_x}{\sum_{y \epsilon C_x}}dist(x,y)^2$ + $\frac{1}{2|C_y|}\sum_{x \epsilon C_y}{\sum_{y \epsilon C_y}}dist(x,y)^2$  + $\frac{1}{2|C_x+ C_y|}\sum_{x \epsilon C_x}{\sum_{y \epsilon C_y}}dist(x,y)^2$  
+
+The above equation is self explanatory i,e the SSE of the new cluster 'll be the sum of SSE of two combined clusters + Average sum of distance of points from one cluster to other cluster.  Also  we have every information to calculate $SSE_{C_xC_y}$
+
+So the Algorithm should look like  
+
+For every $C_i \epsilon M$:  
+....calculate $sse_{C_i}$   
+....for every other $C_j \epsilon M$:  
+..........calculate $sse_{C_iC_j}$   
+....end for
+end for 
+
+Return $C_i, C_j$ for which $SSE_{C_iC_j}$  is minimum.  
+
+
 
 #Q3
 
@@ -293,7 +450,8 @@ On my Observation for top 10 rules on Groceries dataset (Most practical dataset)
 
 All these rules seems to be very relevant.1% support seems low but considering this transaction are over 6 months duration 1% 'll be very significant. 
 Rules for Other support Confidence combination can be found in csv files.  
-  
+Rules with very low support but high confidences then can be thought as peculiar becuase they are rare transactions but are consistent in thier pattern.   
+
 #f)  
 
 Lift is one more parameter of interest in the association analysis. Lift is nothing but the ratio of Confidence to Expected Confidence,Using the above example, expected Confidence in this case means, "confidence, if buying A and B does not enhance the probability of buying C."For the supermarket example the Lift = Confidence/Expected Confidence.Hence, Lift is a value that  gives us information about the increase in probability of the then (consequent)  given the if (antecedent) part.  
@@ -383,9 +541,9 @@ Puzicha on the other hand, emphasis more on the  efficiency of  partition functi
 Distance function is used to calculate the similarity. However this metric is not imposed by using the distance metrics. A clustering function is  defined that inputs the distances and returns the K partition sets. The following properties are  observed:    
 1.  **Scale Invariance**:   
 It checks that the selected clustering function is not sensitive to the different scales of measurements. For this, $\alpha$> 0 is used such that f(d) = f($\alpha$d).  
-2.	**Richness**:  
+2.  **Richness**:  
 This property  says that each partition of the set is equally favourable to be the output. It is defined by $Range(f)$.  
-3.	**Consistency**:  
+3.  **Consistency**:  
 This shows  if the inter-cluster distance is minimized and intra-cluster distance is maximized, the clustering result obtained must be very similar to the previous scale.The publishers uses the transformation function and defines two distances, **(d)** the older distance and **(d')** the new distance. This is imposed to satisfy the conditions of shrinking and expanding the distances. Function is consistent if **f(d) = f(d')** whenever d'is an consistent with d.  
 
 With  looking   on these properties, the publishers characterizes those 1st property that though n >= 2, it will be impossible for whatever grouping capacity to fulfill every last one of over three said properties. This may be demonstrated Toward taking the illustration about single-linkage grouping strategies. The fundamental idea of those methodology is formation about weighted graph  and sub graphs might be taken as likewise groups/clusters. For this suitable stoppping states are characterized. There are three sorts for stopping conditions:  
@@ -399,17 +557,18 @@ b)	Single Linkage - (distance-r) -Consistency, Richness. (n >= 3, $\alpha$<1)
 c)	Single Linkage - (scale-$\alpha$) - Scale Invariance, Richness. (r >0, n >= 2)  
 
 **Antichains**  
-To prove the above results a special refinement set of clusters is used. The concept says that each partition will have a refined partition. This refined partition will be the subset of the original partitions.  For example, if the resulting cluster is A and B, there will be partition of clusters A such that A $\subseteq$ A and B $\subseteq$ A. From this, the concept of Antichain is defined as the collection of partitions such that no two partitions are the refinement of each other.
+To prove the above results a special  set of clusters is used. The theorem says that every partition will have much refined partition set . This  partition will be the subset of the original partitions.  For example, if the new  cluster is A and B, there will be divison of clusters A such that A $\subseteq$ A and B $\subseteq$ A. From this, the idea of Antichain is defined as the sets of partitions such that no two partitions are the refinement of each other.
 
-From this point the author starts the proofs for his statement of impossibility. First theorem says that if the function satisfies the Scale Invariance and Consistency, then Range(f) will be an antichain. This is proved by taking the help of advanced mathematics. On showing the entire calculation, author prove his point with a contradiction. Here the proof given assumes that the clustering function is defined on entire set of data points. Author asks to be careful while selecting the constant.
-The next theorem takes help of the sum-of-pairs method to show that for every antichain of partition, if the function satisfies the scale Invariance and Consistency, the Range(f) will be the antichain of partition. Here the sum-of-pairs function is used that can minimize the distances between pairs of points. The entire transformation is shown by series of calculations.
+From now on ,the Publishers  proofs  his statement of impossibility.
+----->First theorem says that if the function satisfies the Scale Invariance and Consistency, then Range(f) will be an antichain,publishers prove his point with a contradiction. Here the proof  assumes that the clustering function is defined on entire set of data points. 
+----->Next theorem takes help of the sum-of-pairs method to show that for every antichain of partition, if the function satisfies the scale Invariance and Consistency, the Range(f) will be the antichain of partition. Here the sum-of-pairs function is used that can minimize the distances between pairs of points. The entire transformation is shown by series of calculations.
 
 The author has also given a beautiful analysis of how centroid based clustering, which is one of the most common clustering methods, is contrastingly related to the property of Consistency. It is very difficult to generate a consistent k-means or k-median clustering approach as choosing the centroids initially in fairly based on intuition. There is no specific method for generating initial set of centroids.  
 
-**Relaxing Properties**  
-At the end author introduces the concept of Refinement-Consistency. Even then he argues that even then none of the clustering function can satisfy these properties. However, there are slim chances where some functions can satisfy Scale-Invariance, Refinement-Consistency and Near-Richness properties.
 
-**Conclusions and Opinions**  
+At the end author introduces the concept of Refinement-Consistency. Even then he argues that even then none of the clustering function can satisfy these properties. However, there are slim chances where some functions can satisfy Scale-Invariance, Refinement-Consistency and Near-Richness properties.  
+
+**Conclusions**  
 
 **Strengths**:  
 .  The paper has very well explained the importance of scale-invariance, richness and consistency on the generalized form of clustering. The impossibility theorem, explains that two of the above properties could be easily satisfied for any given clustering algorithm. 
@@ -417,3 +576,52 @@ At the end author introduces the concept of Refinement-Consistency. Even then he
 **Weakness**:    
 .	Kleinberg has not mentioned why he chose only three properties - scale invariance, richness and consistency and what is the importance of other properties such as accuracy, efficiency, etc.
 
+
+#Q5  
+
+### Summary Paper 2  
+
+**MEASURES OF CLUSTERING QUALITY**
+
+
+The Publisher  of this paper are Margareta Ackerman and Shai Ben-David who are group of researchers at University of Waterloo. This  paper is related to the above discussed paper publication about  the "Impossibility Theorem". The publisher of this paper rejects the conclusions of Kleinberg's work. The Publishers in this research introduces the notion of Cluster Quality . The publishers argues that instead of using the clustering functions for  three measures i,e  Scale-Invariance, Richness and Consistency, we can use following  quality measures to satisfy the same.    
+
+**Cluster Quality Measure** :It will give a non-negative  number as an output that 'll judge how good the partioning algorithm . This Cluster Quality Measure also satisfies all the three basic axioms given in above paper. Initially the Publishers argue that the impossibility is not the inherent feature and it is due to some of the prior assumptions  that the function becomes impossible. To eliminate this, the publishers here proves that the Cluster Quality Measure are more flexible measurement than the clustering function in above paper.
+
+However this question arises that what is the need of such measures and how those measures could be used. But on looking carefully it can determines that whether the results of the clustering algorithm can be relied upon. To verify the claim that CQM are better, various axioms in relation to Kleinberg's axioms are formulated. Basically the CQM's running complexity is polynomial time. 
+
+
+
+Further the author reformulates the three basic properties defined by Kleinberg to incorporate the concept of CQM. The axioms are Scale-Invariance, Richness and Consistency. The set of these properties form the consistent set of requirements. Thereafter the author defines the first CQM.
+
+**Relative Margin**  
+.  Relative margin works as the average of distances. Basically when a point in cluster is selected, along with it we select two closest centres to that point and take the ratio of their distances. This ratio is defined as Relative Point Margin.
+.	The set of all such distance ratios make up the Representative Set.
+.	Finally the Relative margin is the average of this distance. The smaller value of Relative Margin indicates the better quality of clustering.
+
+
+Along with this, author gives two notions that should be followed by the axioms  
+**1)	Soundness:** All the elements should satisfy all the axioms.  
+**2)	Completeness:** All the properties satisfied by all the elements must be included as axiom.
+
+So with this, the author mentions that the CQM should have soundness and completeness as to satisfy all the axioms, while the clustering functions may fail to have those properties. He mentions that the Kleinberg's approach fails in soundness. They also introduced the new concept of Isomorphism Invariance.
+
+**Isomorphism:** Publisher defines that 2 cluster of  can be isomorphic only if the distance between is preserved. They emphasis that clustering should not be very sensitive to the individual clusters identity.  
+On basis of these axioms, They defines  that a consistent set of axioms that a Cluster Quality Measure should satisfy includes Isomorphism-Invariance, Scale-Invariance, Richness and Consistency.
+
+Then at the last publishers gives examples of Cluster Quality Measure.
+
+**Weakest Link**
+.	Whenever a cluster is formed, the points belonging to same cluster are tightly packed. They have links between them. However the points belonging to different clusters are loosely packed
+.	This concept of Weakest link focuses on the longest tight links between the points
+.	Then after the maximum value of weakest link is divided by the minimum distance between two clusters. The range of this measure can be (0, $\infty$) Point Margin.
+.	The Additive Margin the ratio of average Additive Point Margin to average intra cluster distances.
+
+Publisher  demonstrates that  complexity of this measures is polynomial and  function of k and takes O(n^K+1) time. But if the centres are known, than Relative Margin takes O(nk) time, Additive Margin takes O(n2) time and Weakest Link takes O(n3) time.
+
+Before concluding , Publishers says that there can be influtential dependence on the no of partions. All of thier  methods are independent to those, but a final cconclusion on how to handle the number of clusters is still a active topic of research. According their theory, the objective functions will fail to satisfy the Scale-Invariance and Richnes ,but this can be overcome using normalization. 
+
+.
+
+**Conclusion**:
+On concluding the paper, publisher opposes the Impossibility theorem and gives a solution to use the Cluster Quality Measures instead of Clustering Functions. On reading this  I  got convinced that the impossibility theorem seems not be accurate. Each methods have their own advantages. However the dependence on the number of clusters is an important part to research still. Also there will be a threshold up to which these Cluster Quality Measures can work. 
