@@ -1,3 +1,6 @@
+---
+output: pdf_document
+---
   
 ```{r c1,cache=TRUE,echo=TRUE,warning=FALSE,message=FALSE,error=FALSE,eval=FALSE}
 
@@ -197,8 +200,12 @@ agePlot <- ggplot(mlDat_user, aes(age)) + geom_histogram(aes(y = ..density..),
     binwidth = 1, colour = "black", fill = "white")
 agePlot <- agePlot + geom_density(alpha = 0.2, fill = "#FF6666")
 print(agePlot)
+```
  
+![](./images/ageplot.png)  
 
+ 
+```{r c3,cache=TRUE,echo=TRUE,warning=FALSE,message=FALSE,error=FALSE,eval=FALSE}
 ## User Plot
 
 # sorts by number of users
@@ -261,7 +268,9 @@ rankPlot <- rankPlot + coord_flip()
 
 ggsave(filename = "rankPlot.pdf")  
 
+```
 
+```{r c4,cache=TRUE,echo=TRUE,warning=FALSE,message=FALSE,error=FALSE,eval=FALSE}
 # for printing figures adjacent to eachother
 vplayout <- function(x, y) viewport(layout.pos.row = x, layout.pos.col = y)
 grid.newpage()
@@ -274,9 +283,11 @@ print(rankPlot, vp = vplayout(1, 4))
 ```
 
 
+![](./images/comparison.png)
+
 **Observations**:
 
-1)There are very few doctors and homemakers, we probably can't say anything about these groups with very much confidence
-Students have a very low average age in contrast to the retired. Although these stand out the most, the rest have some divergence; for example average programmer is younger then the average healthcare worker.
-Males make up of more of our sample. Some professions like engineering (rather unsurprisingly) are completely male dominated.
-The professions do not rank things evenly. Some appear more picky; for example executives seem to sometime rank movies very low and healthcare workers seem to have a very low average rating.
+1). There are very few doctors and homemakers, we probably can't say anything about these groups with very much confidence  
+2). Students have a very low average age in contrast to the retired. Although these stand out the most, the rest have some divergence; for example average programmer is younger then the average healthcare worker. 
+3). Males make up of more of our sample. Some professions like engineering (rather unsurprisingly) are completely male dominated. 
+4). The professions do not rank things evenly. Some appear more picky; for example executives seem to sometime rank movies very low and healthcare workers seem to have a very low average rating.  
