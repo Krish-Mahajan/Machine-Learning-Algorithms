@@ -167,12 +167,6 @@ write.csv(unifiedTblMulti, "./Data/unifiedMLDataMulti.csv", row.names = FALSE)
 ```
 
 
-Lets get a feel of the dataset with respect to the profession within the dataset Lets look at:  
-1).Total numbers of each profession that contributed to the dataset  
-2).Gender bias in each profession  
-3).How old each profession tends to be  
-4).How the professions tend to rank movies  
-
 ```{r c2,cache=TRUE,echo=TRUE,warning=FALSE,message=FALSE,error=FALSE,eval=FALSE}
 
 
@@ -283,11 +277,3 @@ print(rankPlot, vp = vplayout(1, 4))
 ```
 
 
-![](./images/comparison.png)
-
-**Observations**:
-
-1). There are very few doctors and homemakers, we probably can't say anything about these groups with very much confidence  
-2). Students have a very low average age in contrast to the retired. Although these stand out the most, the rest have some divergence; for example average programmer is younger then the average healthcare worker. 
-3). Males make up of more of our sample. Some professions like engineering (rather unsurprisingly) are completely male dominated. 
-4). The professions do not rank things evenly. Some appear more picky; for example executives seem to sometime rank movies very low and healthcare workers seem to have a very low average rating.  

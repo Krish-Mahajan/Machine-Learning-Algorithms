@@ -13,7 +13,6 @@ def getRecommendation(j,prefs,movies,k,similarity):
 
     
     ##Calculating similarity matrix
-    
     simDic={}
     for person in prefs:
         simDic.setdefault(person,{})
@@ -52,7 +51,7 @@ def getRecommendation(j,prefs,movies,k,similarity):
                     if movie in prefs[user[1]]:
                         
                         
-                        sumTopKUsersRating=sumTopKUsersRating+user[0]*prefs[user[1]][movie]  #similarity*sum
+                        sumTopKUsersRating=sumTopKUsersRating+user[0]*prefs[user[1]][movie]  #sum(similarity*rating)
                         sumSimilarity=sumSimilarity + user[0]
                         count=count+1
                         
@@ -70,7 +69,7 @@ def getRecommendation(j,prefs,movies,k,similarity):
 #getRatings(load.readPrefs('prefsTrain.json'),'553')
 #topCritics(load.readPrefs('prefsTrain.json'),'553')
 #getRecommendation(load.readPrefs('prefsTrain1.json'),load.readPrefs('simDic.json'),load.readPrefs('movies.json'),100)
-getRecommendation(1,load.readPrefs('./Datastore/prefsTrain1.json'),load.readPrefs('./Datastore/movies.json'),32,similarity.sim_euc)
+#getRecommendation(1,load.readPrefs('./DataStore/prefsTrain1.json'),load.readPrefs('./Datastore/movies_100K.json'),32,similarity.sim_euc)
 
 #print(s)
 #simStorage(load.readPrefs('prefsTrain1.json'))
