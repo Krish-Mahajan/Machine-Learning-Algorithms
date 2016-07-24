@@ -1,2 +1,4 @@
-# Data Science Projects
-Projects as part of Coursera Data Science Specialization and other courses.
+# Machine-Learning-Algorithms
+Various Machine-Learning-Algorithms implemented from scratch as per part of Academic Assignments/Projects and other Data Science
+online certifications.  
+
